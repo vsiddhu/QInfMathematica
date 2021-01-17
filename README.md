@@ -2,7 +2,7 @@
 
 A repository containing Mathematica programs for Quantum Information. Some of
 these programs are built on top of [Quantum Information Programs in
-Mathematica] (https://quantum.phys.cmu.edu/QPM/). 
+Mathematica](https://quantum.phys.cmu.edu/QPM/). 
 
 ## Author
 
