@@ -1,0 +1,700 @@
+1,32c1
+< (*
+< -------------------------------------------------------------------------------
+< NOTICE 
+< -------------------------------------------------------------------------------
+<     What: This file, qinf050.m, facilitates further use of qinf050.ma by turning 
+<           the latter into a mathematica package. For futher details see README
+<           in RBGCode/
+<     
+<     Who : Copyright (C) 2020 Vikesh Siddhu (vsiddhu@andrew.cmu.edu)
+< 
+<     When: 18 Jan 2020 
+< 
+<     This program is free software; you can redistribute it and/or modify it
+<     under the terms of the GNU General Public License as published by the Free
+<     Software Foundation; either version 2 of the License, or (at your option)
+<     any later version.
+< 
+<     This program is distributed in the hope that it will be useful, but WITHOUT
+<     ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+<     FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+<     more details.
+< 
+<     You should have received a copy of the GNU General Public License along
+<     with this program; if not, write to the Free Software Foundation, Inc., 51
+<     Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+< 
+< -------------------------------------------------------------------------------
+< END OF NOTICE 
+< -------------------------------------------------------------------------------
+< *)
+< 
+< (*
+---
+> (*qinf/qinfprg/qinf050.ma 12/29/05 
+389,528d357
+< BeginPackage["qinf050`"]
+< 
+< addidents::usage = "tensor n one qubit identity operators tothe right of op";
+< 
+< adjoint::usage = "adjoint[mat] is the complex conjugate of thetranspose. For a ket this is simply the complex conjugate.";
+< 
+< adjointc::usage = "adjointc[mat] applies ComplexExpand toadjoint[]";
+< 
+< adjointr::usage = "adjointr[mat] is just the transpose; it isthe adjoint if mat is real";
+< 
+< bin2ket::usage = "bin2ket[ls] takes list ls of n 0's and 1's,thought of as basis states of n qubits, and returns the corresponding ket in a2^n dimensional Hilbert space. E.g. bin2ket[{0,1}] -> {0,1,0,0}.  One canmultiply by coefficients, and add if the number of qubits is thesame. c*bin2ket[{0,1}] + d*bin2ket[{1,1}] -> {0,c,0,d}.  Also see bket[].";
+< 
+< bket::usage = "bket[bin,n]. Returns stadard form of basis ketcorresponding to |bin>, where 'bin' is a string of n 0's or 1's. E.g.,bket[01,2]={0,1,0,0}; bket[010,3]={0,0,1,0,0,0,0,0}. Also see bin2ket";	
+< 
+< 
+< blochket::usage = "blochket[{x,y,z}] takes the Cartesiancoordinates of a point on the Bloch sphere and returns the corresponding ket inthe form {cos(th/2),sin(th/2)e^i*phi}."	;
+< 
+< 
+< cgate::usage = "cgate[W_] returns a controlled-W on A x B,where A is the control qubit and W a unitary on B (any dimension), as a matrix"
+< cnot::usage = "returns controlled-not gate on 2 qubits, withfirst qubit the control";
+< 
+< coeffs::usage = "coeffs[v,b] gives the list of expansioncoefficients of the ket v in the orthonormal basis b (= list of basisvectors).";
+< 
+< copygate::usage = "copygate[gate,nn] returns the tensor productgate ox gate ox ... ox gate, containing 'gate' nn times, as a matrix";
+< cphase::usage = "returns controlled-phase gate on two qubits";
+< 
+< diags::usage = "diags[M] takes a matrix M as a list of lists,and extracts the diagonal elements as a single list.";
+< 
+< dyad::usage = "Takes |a> |b>, represented as lists, and formsthe matrix |a><b|, applying Conjugate to |b>.";
+< 
+< dyadc::usage = "Takes |a> |b>, represented as lists, and formsthe matrix |a><b|, applying ComplexExpand[Conjugate to |b>.";
+< 
+< dyadr::usage = "Takes two kets, each REAL and represented by alist, and forms the corresponding dyad matrix.  |a>, |b> -> |a><b|.";
+< 
+< dyap::usage = "dyap[kt_] makes operator |kt><kt| from ket kt.";
+< 
+< entang::usage = "entang[ket,dl] takes a ket on a tensor productAxB, with dl = {dim A, dim B}, normalizes it, forms the partial trace of theprojector, and uses this to compute the entanglement in bits."
+< 
+< entsq::usage = "entsq[ket,dl] takes a ket on a tensor productAxB, with dl = {dim A, dim B}, normalizes it, forms the partial trace rhoa ofthe projector, and returns -log_2 of the trace of its square, for a Renyientanglement."
+< 
+< 
+< exchg::usage = " 4 x 4 unitary that exchanges two qubits"
+< 
+< expandout::usage = "expandout[op,ls,dl] takes an operator op asa matrix defined on a list ls of Hilbert spaces in the tensor product of spaceswith dimensions given by dl, and returns it as a matrix on the full space.E.g., expandout[cnot,{3,2},{4,2,2}] gives a controlled not with the last qubit(3rd space) the control."
+< 
+< expandout2::usage = "expandout2[op,ls,n] takes a matrix oprepresenting a gate or other operation, a list ls of the qubits which forms thebasis of the matrix, and the total number n of qubits in circuit, and forms the2^n by 2^n matrix representing that operation";
+< 
+< fivecode::usage = "{ |0_L>, |1_L>} for 5 qubit code"
+< 
+< fourierg::usage = "fourierg[n] produces a n x nunitary matrix representing the quantum Fourier transform."
+< 
+< fouriern::usage = "fouriern[ket] produces ket' = QFT ketusing Mathematica Fourier[], where ket must be a string of (complex) numbers."
+< 
+< grschm::usage = "grschm[ls] produces from a list ls of kets anorthonormal set.  The original set must be linearly independent."
+< 
+< grschmr::usage = "grschmr[ls] produces from a list ls of realkets an orthonormal set.  The original set must be linearly independent."
+< 
+< hgate::usage = "Hadamard gate for 1 qubit"
+< 
+< ident::usage = "ident[n]=IdentityMatrix[n]"
+< 
+< invertlist::usage = "takes n, and a sorted list l, returns listof elements not in list";
+< 
+< invperm::usage = "invperm[perm] returns inverse permutationto perm, a list of integers 1 to n in some order."	
+< 
+< ketcofs::usage = "ketcofs[v_,b_,dl_] returns a list of ketswhich are the expansion coefficients of ket v in the orthonormal basis b (listof basis vectors) of the first factor in a tensor product BC.... Here dl is thelist of dimensions of the factors, e.g., {3,4}, in which case b is a 3x3matrix."
+< 
+< ketinner::usage = "ketinner[v,w] =  inner product <v|w>";
+< 
+< ketinnerc::usage = "ketinnerc[v,w] = ComplexExpand applied toinner product <v|w>";	
+< 
+< ketnorm::usage = "ketnorm[v] returns the normalized counterpartof the ket v."
+< 
+< ketnormr::usage = "ketnormr[v] returns the normalizedcounterpart of the real ket v."
+< 
+< ketprod::usage = "ketprod[kt1,kt2,...] returns tensor product kt1 ox kt2 ox ... as a single ket (i.e., list)."
+< 
+< ket2bin::usage = "ket2bin[ket] assumes list of length 2^nrepresents n-qubit k, and produces a list where each member of the ket list isassociated with a symbol of type, say |010>. E.g., ket = {al,0,bt,2} yields{{al,|00>},{bt,|10>},{2,|11>}}."
+< 
+< ket2kten::usage = "ket2kten[ket, dl] transforms ket to a tensoron the product space given by dl.  E.g., if dl={3,2}, a 6 component ket ismapped to t_jk, with j in [1,3] and k in [1,2]"
+< 
+< ket2kten2::usage = "ket2kten2[ket] transforms ket to a tensoron a product space of qubits.  The dimension of ket must be 2^n."
+< 
+< kten2ket::usage = "Inverse of ket2kten";
+< 
+< mat2paul::usage = "mat2paul[mat] converts matrix for qubitsto Pauli representation tensor.  New name for mattopauli"
+< 
+< matinner::usage = "matinner[amat,bmat] computes the matrixinner product Tr[adjoint[mata] . matb], but because it does not actually findthe matrix product it is faster."
+< 
+< matinp::usage = "matinp[amat,bmat] evaluates Tr[amat . bmat]without computing the full matrix product (which makes it faster)."
+< 
+< matinq::usage = "matinq[amat,bmat]=sums amat[[j,k]]*bmat[[j,k]]over j and k. Here amat must be a matrix, bmat could be a tensor of rank >2."
+< 
+< matnorm::usage = "matnorm[M] normalizes each row of the matrixM."
+< 
+< mat2bell::usage = "mat2bell[mat] converts a 4 x 4 matrix mat tothe Bell basis"
+< 
+< mat2nten::usage = "mat2nten[mt,ddl] converts the (possiblyrectangular) matrix mt to an n-tensor using the double dimension list ddl,with, e.g., {2,3,{4,5}} interpreted as {{2,2},{3,3},{4,5}}."
+< 
+< mat2nten2::usage = "mat2nten2[mt] assumes mt is a2^m x 2^m matrix for some integer m, and converts it to an n-tensor."
+< 
+< mat2oten::usage = "mat2oten[mt_,ddl_] converts the (possiblyrectangular) matrix mt to an o-tensor using the double dimension list ddl,with, e.g., {2,3,{4,5}} interpreted as {{2,2},{3,3},{4,5}}."
+< 
+< mat2oten2::usage = "mat2oten2[mt] assumes mt is a2^n x 2^n matrix for some integer n, and converts it to an o-tensor."
+< 
+< mat2paul::usage = "mat2paul[mat] is the tensorc[[j1,j2,...jn]] of coefficients of the expansion of the 2^n x 2^n matrix matin the form Sum c[[j1,j2,...jn]] sigma^1_j1 ... sigma^n_jn"
+< 
+< mat2sbell::usage = "mat2sbell[mat] converts a 4 x 4 matrix matto the special Bell basis"
+< 
+< ninecode::usage = "{ |0_L>, |1_L> } for Shor 9 qubit code"
+< 
+< nten2mat::usage = "nten2mat[ntn] converts the n-tensor ntn toa (possibly rectangular) matrix."
+< 
+< nten2oten::usage = "nten2oten[ntn] converts n-tensor referenced(i,j,...,i',j',...) to an o-tensor referenced (i,i',j,j'...)."
+< 
+< oten2mat::usage = "oten2mat[otn] converts o-tensor otnto a (possibly rectangular) matrix."
+< 
+< oten2nten::usage = "oten2nten[otn] converts o-tensor referenced (i,i',j,j'...) to an n-tensor referenced (i,j,...,i',j',...)."
+< 
+< oten2paul::usage = "oten2paul[oten] returns the Paulicoefficient tensor for an operator in the form of an o tensor, for n qubits"		
+< outer::usage = "outer[ls1, ls2, ...] gives the outer product"
+< 
+< partrace::usage = "M'=partrace[M,q,dl] traces M over space q(=1 or 2 or ...)  in the list dl of factors in a tensor product.  Both M and M'are square matrices."
+< 
+< partrace2::usage = "partrace2[M,q] Traces 2^n matrix M overqubit q (=1.2...)"
+< 
+< partrans::usage = "partrans[mt,q,dl] performs a partialtranspose on the matrix mt with respect to space q (=1, 2, etc.) on a tensorproduct of spaces corresponding to dimension list dl. E.g., q=2, dl={2,3},transposes on the 3 dimensional space."
+< 
+< partrans2::usage = "partrans2[mt,q] returns partial transpose of mt over qubit q in a tensor product of qubits"
+< 
+< paul2mat::usage = "paul2mat[ptn] takes a tensor ofcoefficients in the sum ptn[[i,j,...]] sig[i] x sig[j] x ... and returns the corresponding matrix"
+< 
+< paul2oten::usage = "paul2oten[ptn] takes a tensor ptn ofPauli coefficients and generates the corresopnding o-form (dyad) tensor. Inverse of oten2paul"
+< 
+< paulnz::usage="paulnz[ptn] forms a list{{label1,entry1},{label2,entry2},...} of nonzero elements of the Pauli tensorptn, where label is a string of the form {i, j, k...}  and the entry isptn[[i+1,j+1,...]]. E. g. {1,0,3} labels the coef. of (sig_x ox I ox sig_z)."
+< 
+< 
+< paulnzch::usage="paulnzch[ptn,ep] forms a list{{label1,entry1},{label2,entry2},...} of elements of the Pauli tensor ptn whichare nonzero in the sense that Chop[...,ep] is not 0. Here label is a string ofthe form {i, j, k...}  and the entry is ptn[[i+1,j+1,...]]. E. g. {1,0,3} labels the coef. of (sig_x ox I ox sig_z)."
+< 
+< paulten::usage="paulten[1,0,3] will generate the Pauli tensorcorresponding to sg_x ox I ox sg_z, and similarly for any number of arguments, each of which must be an integer between 0 and 3."
+530,639c359
+< permket::usage = "permket[kt,pm,dl] returns ket correspondingto kt on tensor product with dimension list dl when order of factors ispermuted according to pm. E.g., kt defined on A ox B ox C, dl = {4,2,3}, pm={2,3,1},the new ket is defined on the 3 x 4 x 2 space C ox A ox B";
+< 
+< permket2::usage = "permket2[kt,pm] returns ket for a tensorproduct of qubits in the permuted order corresponding to pm.  E.g. for kt defined on A ox B ox C, pm={2,3,1}, the new ket is defined on C ox A ox B."
+< 
+< permmat::usage = "permmat[mt,pm,dl] Converts matrix mtaccording to permutation pm of tensor product with dimension list dl"	
+< 
+< permmat2::usage = "permmat[mt,pm] Converts matrix mt to formcorresponding to permutation pm of tensor product of qubits"
+< 
+< permptrace::usage = "permptrace[n,q] returns a permutation ofthe integers 1,2,3, ... 2n such that 2q-1 and 2q are moved to the beginning of the list.  Thus for n=3 and q = 2 it returns 3,4,1,2,5,6.  Used to form apartial trace"
+< 
+< 
+< permno::usage = "permno[n] is permutation list taking(1a,2a,3a,...na,1b,2b,...,nb) to (1a,1b,2a,2b,...,na,nb), namely(1,3,5,...,2n-1,2,4,...,2n)."
+< 
+< permon::usage = "permon[n] is permutation list taking (1a,1b,2a,2b,...na,nb) to (1a,2a,3a,...na,1b,2b,...nb); namely{1,n+1,2,n+2,3,n+3...}."
+< 
+< permtrans::usage = "returns the permutation 	(1a,1b,2a,2b,...,qb,qa,...)";
+< 
+< permute::usage = "permute[ls,pm] returns permutation of listls determined by pm. E.g., ls={a,b,c}, pm={2,3,1} returns {c,a,b}."
+< 
+< 
+< permutmat::usage = "permutmat[pm] returns a permutation matrixcorresponding to the permutation list pm.  E.g. pm={2,3,1} will yield a matrix'permt' which applied to the ket {a,b,c} will yield {c,a,b}; also (permt.oper.adjoint[permt]) for an operator on qubit 3 will yield thecorresponding operator on qubit 1"
+< 
+< 
+< plabc::usage = "plabc[ls] takes, e.g., {2,0,3} and turnsit into a string like c[2,0,3]= ."	
+< 
+< 
+< pop2dop::usage= "pop2dop[mt] takes a positive operatorrepresented by the matrix mt and returns the corresponding density operatormatrix: mt divided by its trace."
+< 
+< prodlist::usage = "prodlist[ls] returns the product of theelements in list ls."
+< 
+< 
+< prtpaul::usage = "prtpaul[ptn] uses Mca Print[] to outputnonzero elements of the Puali tensor ptn in the form c[3,0,2]= ... forthe coefficient corresponding to sg_z ox I ox sg_y."
+< 
+< prtpaulch::usage = "prtpaulch[ptn,ep] uses Mca Print[] tooutput nonzero--in sense that Chop[,ep] is not 0--elements of the Puali tensorptn in the form c[3,0,2]= ... for the coefficient corresponding to sg_z ox I ox sg_y. Single argument ptn results in default ep determined by paulnzch"
+< 
+< 
+< quadn::usage = "quadn[ml] is the sum of the absolute squaresof the elements in ml, whether a scalar, vector, matrix or tensor."
+< 
+< quadr::usage = "quadr[ml] is the sum of the squaresof the elements in ml, assumed to be a REAL vector or matrix or tensor."
+< 
+< ranbas::usage = "ranbas[n] returns a random basis of ann-dimensional Hilbert space"	
+< 
+< ranbasr::usage = "ranbas[n] returns a random real basis of ann-dimensional Hilbert space"
+< 
+< ranbell::usage = "Returns a list of four 4d kets which form a random fully-entangled basis for two qubits."
+< 
+< ranket::usage = "ranket[n] generates a normalized random ket for an n-dimensional complex Hilbert space"
+< 
+< ranketr::usage = "ranketr[n] generates a normalized real random ket for an n-dimensional Hilbert space"
+< 
+< ranorn::usage = "ranorn[m,n] randomly generates m orthonormal kets on a space of dimension n, as a list of m lists of n terms"
+< 
+< ranornr::usage = "ranornr[m,n] randomly generates m orthonormal real kets on a space of dimension n, as a list of m lists of n terms"
+< 
+< rgate::usage = "Single qubit rgate[j,th] for j=1,2,3=(x,y,z) rotates by angle th about axis j as per Nielsen and Chuang p. 174"
+< 
+< 
+< sbell2mat::usage = "sbell2mat[mat_] converts a 4 x 4 matrix in the special Bell basis to one in the standard basis"
+< 
+< schmidt::usage = "schmidt[ket,dl] takes a ket, assumednormalized, on a tensor product AxB, with dl = {dim A, dim B}, expands it inthe Schmidt form as a sum of type c_j |a_j> |b_j>, with c_j > 0, and returns alist {c_j, |a_j>, |b_j>}, where |a_j> and |b_j> are themselves lists. For |c_j|<: 10^-8, nothing is returned."
+< 
+< 
+< 
+< schmidtprobs::usage = "schmidtprobs[ket,dl] returns Schmidt probabilities for normalized 'ket' on tensor product A x B with dl={da,db}."
+< 
+< schmidtproj::usage = "Takes a list {c_j,|a_j>,|b_j>} and forms the projector sum_j |a_j><a_j x |b_j><b_j|, ignoring the c_j."
+< 
+< 
+< schmidt2ket::usage = "Applied to a list {c_j, |a_j>, |b_j>},where |a_j> and |b_j> are themselves lists, returns the sum_j c_j*|a_j>x|b_j>."
+< 
+< sevencode::usage = "{ |0_L>, |1_L> } for Steane 7 qubit code"
+< 
+< 
+< sigl::usage = "sigl[ls] returns a tensor product of Paulimatrices corresponding to the list ls.  E.g., ls={0,2} produces sig[0] otimessig[2] as a matrix."
+< 
+< 
+< sigprod::usage = "sigprod[j,k,...] = sig[j] ox sig[j] ox...as a matrix; j, k, ... integers in [0,3].  Any number of arguments."	
+< 
+< sumlist::usage = "sumlist[ls] returns the sum of the elements in list ls."
+< 
+< tenprod::usage = "tenprod[mt1,mt2,...] returns the matrix ofthe tensor product mt1 0x mt2 0x ... The matrices may be rectangular."(*tenprod:comment. outer[] transforms the na matrices read into an o-tensor, which is transformed to an n-tensor by transpose[] usingthe permutation pm. The product of numbers of columns of matrices read in = dim =  number of columns of output matrix.*)
+< 
+< threecode::usage = "list { |000>, |111>}"
+< 
+< traceout::usage = "traceout[mt,ls,dl] takes the partial traceof mt over the spaces in list ls which are among those forming the tensorproduct corresponding to the list dl.  E.g., let dl={2,3,4}, ls = {1,3}; the 2and 4 dimensional spaces are traced out to leave a 3x3 matrix."
+< 
+< traceout2::usage = "traceout2[mt,ls] Partial trace of matrix mtover all qubits in list ls"	
+< 
+< transpose::usage = "transpose[ket] returns ket, not an errormessage; otherwise, transpose[]=Transpose[]"	
+< 
+< xgate::usage = "X (sigma_x) or NOT gate on 1 qubit"
+< 
+< xket::usage = "xket[0], xket[1] are +x and -x axis states on Bloch sphere"
+< 
+< xprj::usage = "xprj[0], xprj[1] project on +x and -x axis states on Bloch sphere"
+< 
+< ygate::usage = "Y (sigma_y) gate on 1 qubit"
+< 
+< yket::usage = "yket[0], yket[1] are +y and -y axis states on Bloch sphere"
+< 
+< yprj::usage = "yprj[0], yprj[1] project on +y and -y axis states on Bloch sphere"
+< 
+< zgate::usage = "Z (sigma_z) gate on 1 qubit"
+< 
+< zket::usage = "zket[0]=|0>, zket[1]=|1> are +z and -z axis states on Bloch sphere"
+< 
+< 
+< Begin["`Private`"]
+< 
+< (*Needs["Statistics`NormalDistribution`"]*) (* No longer needed for random functions*)
+---
+> Needs["Statistics`NormalDistribution`"] (*For random functions*)
+640a361,362
+> 		addidents::usage = "tensor n one qubit identity operators to
+> the right of op";
+642a365,366
+> 		adjoint::usage = "adjoint[mat] is the complex conjugate of the
+> transpose. For a ket this is simply the complex conjugate."
+644a369,370
+> 		adjointc::usage = "adjointc[mat] applies ComplexExpand to
+> adjoint[]"
+646a373,374
+> 		adjointr::usage = "adjointr[mat] is just the transpose; it is
+> the adjoint if mat is real"
+670a399,403
+> 		bin2ket::usage = "bin2ket[ls] takes list ls of n 0's and 1's,
+> thought of as basis states of n qubits, and returns the corresponding ket in a
+> 2^n dimensional Hilbert space. E.g. bin2ket[{0,1}] -> {0,1,0,0}.  One can
+> multiply by coefficients, and add if the number of qubits is the
+> same. c*bin2ket[{0,1}] + d*bin2ket[{1,1}] -> {0,c,0,d}.  Also see bket[]."
+676a410,412
+> 		bket::usage = "bket[bin,n]. Returns stadard form of basis ket
+> corresponding to |bin>, where 'bin' is a string of n 0's or 1's. E.g.,
+> bket[01,2]={0,1,0,0}; bket[010,3]={0,0,1,0,0,0,0,0}. Also see bin2ket"
+688a425,427
+> 		blochket::usage = "blochket[{x,y,z}] takes the Cartesian
+> coordinates of a point on the Bloch sphere and returns the corresponding ket in
+> the form {cos(th/2),sin(th/2)e^i*phi}."
+696a436,437
+> 		cgate::usage = "cgate[W_] returns a controlled-W on A x B,
+> where A is the control qubit and W a unitary on B (any dimension), as a matrix"
+699a441,442
+> 		cnot::usage = "returns controlled-not gate on 2 qubits, with
+> first qubit the control"
+701a445,447
+> 		coeffs::usage = "coeffs[v,b] gives the list of expansion
+> coefficients of the ket v in the orthonormal basis b (= list of basis
+> vectors)."
+703a450,451
+> 		copygate::usage = "copygate[gate,nn] returns the tensor product
+> gate ox gate ox ... ox gate, containing 'gate' nn times, as a matrix"
+706a455
+> 		cphase::usage = "returns controlled-phase gate on two qubits"
+708a458,459
+> 		diags::usage = "diags[M] takes a matrix M as a list of lists,
+> and extracts the diagonal elements as a single list."
+712a464,465
+> 		dyad::usage = "Takes |a> |b>, represented as lists, and forms
+> the matrix |a><b|, applying Conjugate to |b>."
+714a468,469
+> 		dyadc::usage = "Takes |a> |b>, represented as lists, and forms
+> the matrix |a><b|, applying ComplexExpand[Conjugate to |b>."
+716a472,473
+> 		dyadr::usage = "Takes two kets, each REAL and represented by a
+> list, and forms the corresponding dyad matrix.  |a>, |b> -> |a><b|."
+718a476
+> 		dyap::usage = "dyap[kt_] makes operator |kt><kt| from ket kt."
+720a479,481
+> 		entang::usage = "entang[ket,dl] takes a ket on a tensor product
+> AxB, with dl = {dim A, dim B}, normalizes it, forms the partial trace of the
+> projector, and uses this to compute the entanglement in bits."
+732a494,497
+> 		entsq::usage = "entsq[ket,dl] takes a ket on a tensor product
+> AxB, with dl = {dim A, dim B}, normalizes it, forms the partial trace rhoa of
+> the projector, and returns -log_2 of the trace of its square, for a Renyi
+> entanglement."
+738a504,505
+> 		entropy::usage = "entropy[list] takes a list of probabilities
+> {p_i} and calculates the sum {-p_i log p_i}, where log is to base 2"
+749a517
+> 		exchg::usage = " 4 x 4 unitary that exchanges two qubits"
+751a520,524
+> 		expandout::usage = "expandout[op,ls,dl] takes an operator op as
+> a matrix defined on a list ls of Hilbert spaces in the tensor product of spaces
+> with dimensions given by dl, and returns it as a matrix on the full space.
+> E.g., expandout[cnot,{3,2},{4,2,2}] gives a controlled not with the last qubit
+> (3rd space) the control."
+755a529,532
+> 		expandout2::usage = "expandout2[op,ls,n] takes a matrix op
+> representing a gate or other operation, a list ls of the qubits which forms the
+> basis of the matrix, and the total number n of qubits in circuit, and forms the
+> 2^n by 2^n matrix representing that operation";
+758a536
+> 		fivecode::usage = "{ |0_L>, |1_L>} for 5 qubit code"
+768a547,548
+> 		fourierg::usage = "fourierg[n] produces a n x n
+> unitary matrix representing the quantum Fourier transform."
+771a552,553
+> 		fouriern::usage = "fouriern[ket] produces ket' = QFT ket
+> using Mathematica Fourier[], where ket must be a string of (complex) numbers."
+773a556,557
+> 		grschm::usage = "grschm[ls] produces from a list ls of kets an
+> orthonormal set.  The original set must be linearly independent."
+783a568,569
+> 		grschmr::usage = "grschmr[ls] produces from a list ls of real
+> kets an orthonormal set.  The original set must be linearly independent."
+793a580
+> 		hgate::usage = "Hadamard gate for 1 qubit"
+795a583
+> 		ident::usage = "ident[n]=IdentityMatrix[n]"
+797a586,587
+> 		invertlist::usage = "takes n, and a sorted list l, returns list
+> of elements not in list";
+799a590,591
+> 		invperm::usage = "invperm[perm] returns inverse permutation
+> to perm, a list of integers 1 to n in some order."
+804a597,601
+> 		ketcofs::usage = "ketcofs[v_,b_,dl_] returns a list of kets
+> which are the expansion coefficients of ket v in the orthonormal basis b (list
+> of basis vectors) of the first factor in a tensor product BC.... Here dl is the
+> list of dimensions of the factors, e.g., {3,4}, in which case b is a 3x3
+> matrix."
+809a607
+> 		ketinner::usage = "ketinner[v,w] =  inner product <v|w>";
+811a610,611
+> 		ketinnerc::usage = "ketinnerc[v,w] = ComplexExpand applied to
+> inner product <v|w>";
+813a614,616
+> 
+> 		ketnorm::usage = "ketnorm[v] returns the normalized counterpart
+> of the ket v."
+815a619,620
+> 		ketnormr::usage = "ketnormr[v] returns the normalized
+> counterpart of the real ket v."
+817a623,624
+> 		ketprod::usage = "ketprod[kt1,kt2,...] returns 
+> tensor product kt1 ox kt2 ox ... as a single ket (i.e., list)."
+819a627,630
+> 		ket2bin::usage = "ket2bin[ket] assumes list of length 2^n
+> represents n-qubit k, and produces a list where each member of the ket list is
+> associated with a symbol of type, say |010>. E.g., ket = {al,0,bt,2} yields
+> {{al,|00>},{bt,|10>},{2,|11>}}."
+836a648,650
+> 		ket2kten::usage = "ket2kten[ket, dl] transforms ket to a tensor
+> on the product space given by dl.  E.g., if dl={3,2}, a 6 component ket is
+> mapped to t_jk, with j in [1,3] and k in [1,2]"
+840a655,656
+> 		ket2kten2::usage = "ket2kten2[ket] transforms ket to a tensor
+> on a product space of qubits.  The dimension of ket must be 2^n."
+843a660
+> 		kten2ket::usage = "Inverse of ket2kten";
+845a663,664
+> 		mat2paul::usage = "mat2paul[mat] converts matrix for qubits
+> to Pauli representation tensor.  New name for mattopauli"
+847a667,669
+> 		matinner::usage = "matinner[amat,bmat] computes the matrix
+> inner product Tr[adjoint[mata] . matb], but because it does not actually find
+> the matrix product it is faster."
+850a673,674
+> 		matinp::usage = "matinp[amat,bmat] evaluates Tr[amat . bmat]
+> without computing the full matrix product (which makes it faster)."
+853a678,679
+> 		matinq::usage = "matinq[amat,bmat]=sums amat[[j,k]]*bmat[[j,k]]
+> over j and k. Here amat must be a matrix, bmat could be a tensor of rank >2."
+856a683,684
+> 		matnorm::usage = "matnorm[M] normalizes each row of the matrix
+> M."
+858a687,688
+> 		mat2bell::usage = "mat2bell[mat] converts a 4 x 4 matrix mat to
+> the Bell basis"
+860a691,693
+> 		mat2nten::usage = "mat2nten[mt,ddl] converts the (possibly
+> rectangular) matrix mt to an n-tensor using the double dimension list ddl,
+> with, e.g., {2,3,{4,5}} interpreted as {{2,2},{3,3},{4,5}}."
+868a702,703
+> 		mat2nten2::usage = "mat2nten2[mt] assumes mt is a
+> 2^m x 2^m matrix for some integer m, and converts it to an n-tensor."
+871a707,709
+> 		mat2oten::usage = "mat2oten[mt_,ddl_] converts the (possibly
+> rectangular) matrix mt to an o-tensor using the double dimension list ddl,
+> with, e.g., {2,3,{4,5}} interpreted as {{2,2},{3,3},{4,5}}."
+873a712,713
+> 		mat2oten2::usage = "mat2oten2[mt] assumes mt is a
+> 2^n x 2^n matrix for some integer n, and converts it to an o-tensor."
+875a716,718
+> 		mat2paul::usage = "mat2paul[mat] is the tensor
+> c[[j1,j2,...jn]] of coefficients of the expansion of the 2^n x 2^n matrix mat
+> in the form Sum c[[j1,j2,...jn]] sigma^1_j1 ... sigma^n_jn"
+877a721,722
+> 		mat2sbell::usage = "mat2sbell[mat] converts a 4 x 4 matrix mat
+> to the special Bell basis"
+879a725
+> 		ninecode::usage = "{ |0_L>, |1_L> } for Shor 9 qubit code"
+885a732,733
+> 		nten2mat::usage = "nten2mat[ntn] converts the n-tensor ntn to
+> a (possibly rectangular) matrix."
+889a738,739
+> 		nten2oten::usage = "nten2oten[ntn] converts n-tensor referenced
+> (i,j,...,i',j',...) to an o-tensor referenced (i,i',j,j'...)."
+891a742,743
+> 		oten2mat::usage = "oten2mat[otn] converts o-tensor otn
+> to a (possibly rectangular) matrix."
+893a746,747
+> 		oten2nten::usage = "oten2nten[otn] converts o-tensor 
+> referenced (i,i',j,j'...) to an n-tensor referenced (i,j,...,i',j',...)."
+895a750,751
+> 		oten2paul::usage = "oten2paul[oten] returns the Pauli
+> coefficient tensor for an operator in the form of an o tensor, for n qubits"
+910a767
+> 		outer::usage = "outer[ls1, ls2, ...] gives the outer product"
+912a770,772
+> 		partrace::usage = "M'=partrace[M,q,dl] traces M over space q
+> (=1 or 2 or ...)  in the list dl of factors in a tensor product.  Both M and M'
+> are square matrices."
+916a777,778
+> 		partrace2::usage = "partrace2[M,q] Traces 2^n matrix M over
+> qubit q (=1.2...)"
+920a783,786
+> 		partrans::usage = "partrans[mt,q,dl] performs a partial
+> transpose on the matrix mt with respect to space q (=1, 2, etc.) on a tensor
+> product of spaces corresponding to dimension list dl. E.g., q=2, dl={2,3},
+> transposes on the 3 dimensional space."
+923a790,791
+> 		partrans2::usage = "partrans2[mt,q] returns partial transpose
+> of mt over qubit q in a tensor product of qubits"
+926a795,798
+> 
+> 		paul2mat::usage = "paul2mat[ptn] takes a tensor of
+> coefficients in the sum ptn[[i,j,...]] sig[i] x sig[j] x ... and returns the
+> corresponding matrix"
+928a801,803
+> 		paul2oten::usage = "paul2oten[ptn] takes a tensor ptn of
+> Pauli coefficients and generates the corresopnding o-form (dyad) tensor.
+> Inverse of oten2paul"
+942,943c817,824
+< 	
+<     paulnz[ptn_]:=Module[{digs,jp,lp=TensorRank[ptn],
+---
+> 
+> 
+> 
+> 		paulnz::usage="paulnz[ptn] forms a list
+> {{label1,entry1},{label2,entry2},...} of nonzero elements of the Pauli tensor
+> ptn, where label is a string of the form {i, j, k...}  and the entry is
+> ptn[[i+1,j+1,...]]. E. g. {1,0,3} labels the coef. of (sig_x ox I ox sig_z)."
+> 	paulnz[ptn_]:=Module[{digs,jp,lp=TensorRank[ptn],
+950a832,836
+> 		paulnzch::usage="paulnzch[ptn,ep] forms a list
+> {{label1,entry1},{label2,entry2},...} of elements of the Pauli tensor ptn which
+> are nonzero in the sense that Chop[...,ep] is not 0. Here label is a string of
+> the form {i, j, k...}  and the entry is ptn[[i+1,j+1,...]]. E. g. {1,0,3}
+> labels the coef. of (sig_x ox I ox sig_z)."
+961a848,850
+> 		paulten::usage="paulten[1,0,3] will generate the Pauli tensor
+> corresponding to sg_x ox I ox sg_z, and similarly for any number of arguments,
+> each of which must be an integer between 0 and 3."
+965a855,859
+> 
+> 		permket::usage = "permket[kt,pm,dl] returns ket corresponding
+> to kt on tensor product with dimension list dl when order of factors is
+> permuted according to pm. E.g., kt defined on A ox B ox C, dl = {4,2,3},
+> pm={2,3,1},the new ket is defined on the 3 x 4 x 2 space C ox A ox B";
+967a862,864
+> 		permket2::usage = "permket2[kt,pm] returns ket for a tensor
+> product of qubits in the permuted order corresponding to pm.  E.g. for kt
+> defined on A ox B ox C, pm={2,3,1}, the new ket is defined on C ox A ox B."
+969a867,868
+> 		permmat::usage = "permmat[mt,pm,dl] Converts matrix mt
+> according to permutation pm of tensor product with dimension list dl"
+974a874,875
+> 		permmat2::usage = "permmat[mt,pm] Converts matrix mt to form
+> corresponding to permutation pm of tensor product of qubits"
+979a881,884
+> 		permptrace::usage = "permptrace[n,q] returns a permutation of
+> the integers 1,2,3, ... 2n such that 2q-1 and 2q are moved to the beginning of
+> the list.  Thus for n=3 and q = 2 it returns 3,4,1,2,5,6.  Used to form a
+> partial trace"
+981a887,889
+> 		permno::usage = "permno[n] is permutation list taking
+> (1a,2a,3a,...na,1b,2b,...,nb) to (1a,1b,2a,2b,...,na,nb), namely
+> (1,3,5,...,2n-1,2,4,...,2n)."
+983a892,894
+> 		permon::usage = "permon[n] is permutation list taking 
+> (1a,1b,2a,2b,...na,nb) to (1a,2a,3a,...na,1b,2b,...nb); namely
+> {1,n+1,2,n+2,3,n+3...}."
+985a897,898
+> 		permtrans::usage = "returns the permutation 
+> 	(1a,1b,2a,2b,...,qb,qa,...)";
+987a901,902
+> 		permute::usage = "permute[ls,pm] returns permutation of list
+> ls determined by pm. E.g., ls={a,b,c}, pm={2,3,1} returns {c,a,b}."
+989a905,910
+> 
+> 		permutmat::usage = "permutmat[pm] returns a permutation matrix
+> corresponding to the permutation list pm.  E.g. pm={2,3,1} will yield a matrix
+> 'permt' which applied to the ket {a,b,c} will yield {c,a,b}; also 
+> (permt.oper.adjoint[permt]) for an operator on qubit 3 will yield the
+> corresponding operator on qubit 1"
+994a916,917
+> 		plabc::usage = "plabc[ls] takes, e.g., {2,0,3} and turns
+> it into a string like c[2,0,3]= ."
+1002a926,929
+> 
+> 		pop2dop::usage= "pop2dop[mt] takes a positive operator
+> represented by the matrix mt and returns the corresponding density operator
+> matrix: mt divided by its trace."
+1004a932,933
+> 		prodlist::usage = "prodlist[ls] returns the product of the
+> elements in list ls."
+1006a936,939
+> 
+> 		prtpaul::usage = "prtpaul[ptn] uses Mca Print[] to output
+> nonzero elements of the Puali tensor ptn in the form c[3,0,2]= ... for
+> the coefficient corresponding to sg_z ox I ox sg_y."
+1013a947,950
+> 		prtpaulch::usage = "prtpaulch[ptn,ep] uses Mca Print[] to
+> output nonzero--in sense that Chop[,ep] is not 0--elements of the Puali tensor
+> ptn in the form c[3,0,2]= ... for the coefficient corresponding to sg_z ox I ox
+> sg_y. Single argument ptn results in default ep determined by paulnzch"
+1021a959,960
+> 		quadn::usage = "quadn[ml] is the sum of the absolute squares
+> of the elements in ml, whether a scalar, vector, matrix or tensor."
+1026a966,967
+> 		quadr::usage = "quadr[ml] is the sum of the squares
+> of the elements in ml, assumed to be a REAL vector or matrix or tensor."
+1031,1032c972,974
+< (*Needs["Statistics`NormalDistribution`"]*) (* No longer needed for random functions*)
+< 
+---
+> 	Needs["Statistics`NormalDistribution`"]
+> 		ranbas::usage = "ranbas[n] returns a random basis of an
+> n-dimensional Hilbert space"
+1034a977,978
+> 		ranbasr::usage = "ranbas[n] returns a random real basis of an
+> n-dimensional Hilbert space"
+1036a981,982
+> 		ranbell::usage = "Returns a list of four 4d kets which 
+> form a random fully-entangled basis for two qubits."
+1045a992,993
+> 		ranket::usage = "ranket[n] generates a normalized random ket
+> for an n-dimensional complex Hilbert space"
+1049a998,999
+> 		ranketr::usage = "ranketr[n] generates a normalized real random
+> ket for an n-dimensional Hilbert space"
+1055a1006,1007
+> 		ranorn::usage = "ranorn[m,n] randomly generates m orthonormal
+> kets on a space of dimension n, as a list of m lists of n terms"
+1062a1015,1016
+> 		ranornr::usage = "ranornr[m,n] randomly generates m orthonormal
+> real kets on a space of dimension n, as a list of m lists of n terms"
+1069a1024,1025
+> 		rgate::usage = "Single qubit rgate[j,th] for j=1,2,3=(x,y,z)
+> rotates by angle th about axis j as per Nielsen and Chuang p. 174"
+1081a1038,1039
+> 		sbell2mat::usage = "sbell2mat[mat_] converts a 4 x 4 matrix in
+> the special Bell basis to one in the standard basis"
+1083a1042,1046
+> 		schmidt::usage = "schmidt[ket,dl] takes a ket, assumed
+> normalized, on a tensor product AxB, with dl = {dim A, dim B}, expands it in
+> the Schmidt form as a sum of type c_j |a_j> |b_j>, with c_j > 0, and returns a
+> list {c_j, |a_j>, |b_j>}, where |a_j> and |b_j> are themselves lists. For |c_j|
+> < 10^-8, nothing is returned."
+1100a1064,1065
+> 		schmidtprobs::usage = "schmidtprobs[ket,dl] returns Schmidt
+> probabilities for normalized 'ket' on tensor product A x B with dl={da,db}."
+1106a1072,1073
+> 		schmidtproj::usage = "Takes a list {c_j,|a_j>,|b_j>} and forms
+> the projector sum_j |a_j><a_j x |b_j><b_j|, ignoring the c_j."
+1115a1083,1085
+> 
+> 		schmidt2ket::usage = "Applied to a list {c_j, |a_j>, |b_j>},
+> where |a_j> and |b_j> are themselves lists, returns the sum_j c_j*|a_j>x|b_j>."
+1131a1102,1104
+> 		sigl::usage = "sigl[ls] returns a tensor product of Pauli
+> matrices corresponding to the list ls.  E.g., ls={0,2} produces sig[0] otimes
+> sig[2] as a matrix."
+1133a1107,1108
+> 		sigprod::usage = "sigprod[j,k,...] = sig[j] ox sig[j] ox...
+> as a matrix; j, k, ... integers in [0,3].  Any number of arguments."
+1135a1111,1112
+> 		sumlist::usage = "sumlist[ls] returns the sum of the elements
+> in list ls."
+1137a1115,1116
+> 		tenprod::usage = "tenprod[mt1,mt2,...] returns the matrix of
+> the tensor product mt1 0x mt2 0x ... The matrices may be rectangular."
+1149a1129,1132
+> 		traceout::usage = "traceout[mt,ls,dl] takes the partial trace
+> of mt over the spaces in list ls which are among those forming the tensor
+> product corresponding to the list dl.  E.g., let dl={2,3,4}, ls = {1,3}; the 2
+> and 4 dimensional spaces are traced out to leave a 3x3 matrix."
+1156a1140,1141
+> 		traceout2::usage = "traceout2[mt,ls] Partial trace of matrix mt
+> over all qubits in list ls"
+1158a1144,1145
+> 		transpose::usage = "transpose[ket] returns ket, not an error
+> message; otherwise, transpose[]=Transpose[]"
+1162a1150
+> 		xgate::usage = "X (sigma_x) or NOT gate on 1 qubit"
+1164a1153,1154
+> 		xket::usage = "xket[0], xket[1] are +x and -x axis states
+> on Bloch sphere"
+1167a1158,1159
+> 		xprj::usage = "xprj[0], xprj[1] project on +x and -x axis
+> states on Bloch sphere"
+1170a1163
+> 		ygate::usage = "Y (sigma_y) gate on 1 qubit"
+1172a1166,1167
+> 		yket::usage = "yket[0], yket[1] are +y and -y axis states
+> on Bloch sphere"
+1175a1171,1172
+> 		yprj::usage = "yprj[0], yprj[1] project on +x and -x axis
+> states on Bloch sphere"
+1178a1176
+> 		zgate::usage = "Z (sigma_z) gate on 1 qubit"
+1180a1179,1180
+> 		zket::usage = "zket[0]=|0>, zket[1]=|1> are +z and -z axis
+> states on Bloch sphere"
+1183a1184,1185
+> 		zprj::usage = "zprj[0]=|0><0|, zprj[1]=|1><1| project on +x and
+> -x axis states on Bloch sphere"
+1186,1187d1187
+< End[]
+< EndPackage[]

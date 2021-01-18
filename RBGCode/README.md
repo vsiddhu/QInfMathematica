@@ -31,4 +31,9 @@ turned into a package, `qinf050.m`, by
 
 * commenting out a deprecated package called `Statistics`NormalDistribution`"`.
 
+The full output of 
 
+```diff qinf050.m qinf050.ma
+``` 
+
+is included in the [diffOutput](diffOutput) file.
