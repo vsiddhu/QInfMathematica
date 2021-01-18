@@ -2,27 +2,26 @@
 -------------------------------------------------------------------------------
 NOTICE 
 -------------------------------------------------------------------------------
-    What: This file, qinf050.m, facilitates further use of qinf050.ma by turning 
-          the latter into a mathematica package. For futher details see README
-          in RBGCode/
-    
-    Who : Copyright (C) 2020 Vikesh Siddhu (vsiddhu@andrew.cmu.edu)
+This file, qinf050.m, facilitates further use of qinf050.ma by turning the
+latter into a mathematica package. For futher details see README in RBGCode/
 
-    When: 18 Jan 2020 
+Copyright (C) 2020 Vikesh Siddhu (vsiddhu@andrew.cmu.edu)
 
-    This program is free software; you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published by the Free
-    Software Foundation; either version 2 of the License, or (at your option)
-    any later version.
+Date: 18 Jan 2020 
 
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-    more details.
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option)
+any later version.
 
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc., 51
-    Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc., 51
+Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 -------------------------------------------------------------------------------
 END OF NOTICE 

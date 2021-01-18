@@ -12,7 +12,7 @@ file](license.txt).
 
 The **Quantum Information Programs in Mathematica**
 [website](https://quantum.phys.cmu.edu/QPM/) indicates that the collection of
-functions and other objects there, are *intended for tinkerers: users who want
+functions and other objects there are *intended for tinkerers: users who want
 to set up and modify their own simulation programs using Mathematica,..*.  To
 faciliate such tinkering, the functions in the `qinf050.ma` file have been
 turned into a package, `qinf050.m`, by
@@ -25,9 +25,9 @@ turned into a package, `qinf050.m`, by
   [$ContextPath](https://reference.wolfram.com/language/ref/$ContextPath.html);
 
 * moving and reformating usage text for functions. In `qinf050.ma`, such text
-  was added just prior to each function. Now the usage text has been moved to the 
-  space between `BeginPackage[..]` and `Begin[..]` commands, during the move
-  some end of line symbols within the text have been removed;
+  was added just prior to each function. Now the usage text has been moved to
+  the space between `BeginPackage[..]` and `Begin[..]` commands. During the
+  move some end of line symbols within the usage text have been removed;
 
 * commenting out a deprecated package called `Statistics`NormalDistribution`"`.
 
