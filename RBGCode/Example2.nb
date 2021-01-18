@@ -1,0 +1,196 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6443,        187]
+NotebookOptionsPosition[      5713,        161]
+NotebookOutlinePosition[      6053,        176]
+CellTagsIndexPosition[      6010,        173]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Example", " ", "2"}], ":", " ", 
+     RowBox[{
+     "How", " ", "to", " ", "load", " ", "package", " ", "correctly"}]}], ";",
+     "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Method", " ", "2"}], "-", " ", 
+     RowBox[{"From", " ", "any", " ", "Mathematica", " ", "Notebook"}]}], " ",
+     ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+    "1.", " ", "In", " ", "a", " ", "directory", " ", "of", " ", "your", " ", 
+     "choice"}]}], ",", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"'", "/", "home"}], "/", "uname"}], "/", 
+    RowBox[{"MathPackage", "'"}]}], ",", " ", 
+   RowBox[{
+    RowBox[{"place", " ", "the", " ", 
+     RowBox[{"qinf050", ".", "m"}], " ", "file"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+    "2.", " ", "Open", " ", "a", " ", "Mathematica", " ", "Notebook"}]}]}], 
+  "\[IndentingNewLine]", "*)"}]], "Input",
+ CellChangeTimes->{{3.819986559314927*^9, 3.8199865926753683`*^9}, {
+  3.819986919763892*^9, 3.819987143414454*^9}, {3.819988495617999*^9, 
+  3.819988599233824*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"$Path", ",", "\"\</home/uname/MathPackage\>\""}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.819988600108865*^9, 3.819988631863511*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Print", " ", "the", " ", "Path"}], ",", " ", 
+    RowBox[{
+    "which", " ", "stores", " ", "the", " ", "list", " ", "of", " ", 
+     "directories", " ", "to", " ", "search", " ", "in", " ", "attempting", 
+     " ", "to", " ", "find", " ", "an", " ", "external", " ", "file"}]}], 
+   "*)"}], "\[IndentingNewLine]", "$Path"}]], "Input",
+ CellChangeTimes->{{3.819988636102409*^9, 3.819988696488984*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"The", " ", "path", " ", "should", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"contain", " ", "'"}], "/", "home"}], "/", "uname"}], "/", 
+      RowBox[{"MathPackage", "'"}]}]}], ",", " ", 
+    RowBox[{"the", " ", "location", " ", "of", " ", "the", " ", 
+     RowBox[{"qinf050", ".", "m"}], " ", "file"}]}], "*)"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.819988707005175*^9, 3.8199887476158037`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Read", " ", "in", " ", "the", " ", "Wolfram", " ", "Language", " ", 
+    "package", " ", "with", " ", "filename", " ", 
+    RowBox[{"qinf050", ".", "m"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"<<", "qinf050`"}]}]], "Input",
+ CellChangeTimes->{{3.819988589783781*^9, 3.8199886035689*^9}, {
+  3.819988755709852*^9, 3.8199887599907217`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Get", " ", "a", " ", "list", " ", "of", " ", "the", " ", "contexts", " ", 
+    "corresponding", " ", "to", " ", "all", " ", "packages", " ", "which", 
+    " ", "have", " ", "been", " ", "loaded", " ", "in", " ", "your", " ", 
+    "current", " ", "Wolfram", " ", "System", " ", "session"}], "*)"}], 
+  "\[IndentingNewLine]", "$Packages"}]], "Input",
+ CellChangeTimes->{{3.8199865937491827`*^9, 3.819986607872559*^9}, 
+   3.819986909211874*^9, {3.819986955831442*^9, 3.819986957364773*^9}, {
+   3.819987210230495*^9, 3.81998723632407*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "Get", " ", "names", " ", "of", " ", "all", " ", "functions", " ", "in", 
+   " ", "the", " ", "package"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.819987325580277*^9, 3.81998734999691*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Names", "[", "\"\<qinf050`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{
+  3.819986648522542*^9, {3.819986877418071*^9, 3.819986911871056*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Show", " ", "usage", " ", "of", " ", "a", " ", "function"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.819987476192006*^9, 3.819987485712474*^9}, {
+  3.8199882872857533`*^9, 3.8199882886349363`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "cphase"}]], "Input",
+ CellChangeTimes->{{3.819987386672462*^9, 3.819987401108943*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Show", " ", "definition", " ", "of", " ", "a", " ", "function"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Definition", "[", "cphase", "]"}]}]], "Input",
+ CellChangeTimes->{{3.819986894206859*^9, 3.819986898977841*^9}, {
+  3.819987377720639*^9, 3.819987380976941*^9}, {3.8199874878470182`*^9, 
+  3.819987495751234*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Show", " ", "usage", " ", "of", " ", "a", " ", "function"}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.819988292672106*^9, 3.819988292902422*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "entropy"}]], "Input",
+ CellChangeTimes->{{3.819987501651536*^9, 3.819987508879827*^9}, {
+  3.819988263420145*^9, 3.819988272337878*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Show", " ", "definition", " ", "of", " ", "a", " ", "function"}], 
+   "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"Definition", "[", "entropy", "]"}]}]], "Input",
+ CellChangeTimes->{{3.819988273881116*^9, 3.8199882990094423`*^9}}]
+},
+WindowSize->{1301, 716},
+WindowMargins->{{-10, Automatic}, {Automatic, -10}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1108, 28, 143, "Input"],
+Cell[1669, 50, 206, 5, 32, "Input"],
+Cell[1878, 57, 467, 10, 55, "Input"],
+Cell[2348, 69, 509, 13, 55, "Input"],
+Cell[2860, 84, 402, 9, 55, "Input"],
+Cell[3265, 95, 594, 11, 55, "Input"],
+Cell[3862, 108, 232, 5, 32, "Input"],
+Cell[4097, 115, 165, 3, 32, "Input"],
+Cell[4265, 120, 241, 5, 32, "Input"],
+Cell[4509, 127, 115, 2, 32, "Input"],
+Cell[4627, 131, 378, 8, 55, "Input"],
+Cell[5008, 141, 226, 5, 55, "Input"],
+Cell[5237, 148, 165, 3, 32, "Input"],
+Cell[5405, 153, 304, 6, 77, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

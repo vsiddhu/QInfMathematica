@@ -1,0 +1,347 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13130,        338]
+NotebookOptionsPosition[     11811,        289]
+NotebookOutlinePosition[     12453,        314]
+CellTagsIndexPosition[     12327,        308]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Example", " ", "1"}], ":", " ", 
+      RowBox[{
+      "How", " ", "to", " ", "load", " ", "package", " ", "correctly"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Method", " ", "1"}], "-", " ", 
+      RowBox[{"Notebook", " ", "from", " ", "command", " ", "line"}]}], " ", 
+     ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+     "1.", " ", "In", " ", "a", " ", "directory", " ", "of", " ", "your", " ",
+       "choice"}]}], ",", " ", 
+    RowBox[{
+     RowBox[{"open", " ", "mathematica", " ", "via", " ", "command", " ", 
+      RowBox[{"line", "."}]}], ";", " ", 
+     RowBox[{
+     "On", " ", "Ubuntu", " ", "machines", " ", "mathematica", " ", "can", 
+      " ", "be", " ", "opened", " ", "from", " ", "command", " ", "line", " ",
+       "by", " ", 
+      RowBox[{"typing", " ", "'"}], 
+      RowBox[{"mathematica", "'"}], " ", "and", " ", 
+      RowBox[{"pressing", " ", "'"}], 
+      RowBox[{"Enter", "'"}]}], ";"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Read", " ", "in", " ", "the", " ", "Wolfram", " ", "Language", " ", 
+    "package", " ", "with", " ", "filename", " ", 
+    RowBox[{"qinf050", ".", "m"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"<<", "qinf050`"}]}]], "Input",
+ CellChangeTimes->{{3.819986559314927*^9, 3.8199865926753683`*^9}, {
+  3.819986919763892*^9, 3.819987143414454*^9}, {3.8199887734415293`*^9, 
+  3.819988774747184*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Get", " ", "a", " ", "list", " ", "of", " ", "the", " ", "contexts", " ", 
+    "corresponding", " ", "to", " ", "all", " ", "packages", " ", "which", 
+    " ", "have", " ", "been", " ", "loaded", " ", "in", " ", "your", " ", 
+    "current", " ", "Wolfram", " ", "System", " ", "session"}], "*)"}], 
+  "\[IndentingNewLine]", "$Packages"}]], "Input",
+ CellChangeTimes->{{3.8199865937491827`*^9, 3.819986607872559*^9}, 
+   3.819986909211874*^9, {3.819986955831442*^9, 3.819986957364773*^9}, {
+   3.819987210230495*^9, 3.81998723632407*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "Get", " ", "names", " ", "of", " ", "all", " ", "functions", " ", "in", 
+   " ", "the", " ", "package"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.819987325580277*^9, 3.81998734999691*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Names", "[", "\"\<qinf050`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{
+  3.819986648522542*^9, {3.819986877418071*^9, 3.819986911871056*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"addidents\"\>", ",", "\<\"adjoint\"\>", 
+   ",", "\<\"adjointc\"\>", ",", "\<\"adjointr\"\>", ",", "\<\"bin2ket\"\>", 
+   ",", "\<\"bket\"\>", ",", "\<\"blochket\"\>", ",", "\<\"cgate\"\>", 
+   ",", "\<\"cnot\"\>", ",", "\<\"coeffs\"\>", ",", "\<\"copygate\"\>", 
+   ",", "\<\"cphase\"\>", ",", "\<\"diags\"\>", ",", "\<\"dyad\"\>", 
+   ",", "\<\"dyadc\"\>", ",", "\<\"dyadr\"\>", ",", "\<\"dyap\"\>", 
+   ",", "\<\"entang\"\>", ",", "\<\"entropy\"\>", ",", "\<\"entsq\"\>", 
+   ",", "\<\"exchg\"\>", ",", "\<\"expandout\"\>", ",", "\<\"expandout2\"\>", 
+   ",", "\<\"fivecode\"\>", ",", "\<\"fourierg\"\>", ",", "\<\"fouriern\"\>", 
+   ",", "\<\"grschm\"\>", ",", "\<\"grschmr\"\>", ",", "\<\"hgate\"\>", 
+   ",", "\<\"ident\"\>", ",", "\<\"invertlist\"\>", ",", "\<\"invperm\"\>", 
+   ",", "\<\"ket2bin\"\>", ",", "\<\"ket2kten\"\>", ",", "\<\"ket2kten2\"\>", 
+   ",", "\<\"ketcofs\"\>", ",", "\<\"ketinner\"\>", ",", "\<\"ketinnerc\"\>", 
+   ",", "\<\"ketnorm\"\>", ",", "\<\"ketnormr\"\>", ",", "\<\"ketprod\"\>", 
+   ",", "\<\"kten2ket\"\>", ",", "\<\"mat2bell\"\>", ",", "\<\"mat2nten\"\>", 
+   ",", "\<\"mat2nten2\"\>", ",", "\<\"mat2oten\"\>", 
+   ",", "\<\"mat2oten2\"\>", ",", "\<\"mat2paul\"\>", 
+   ",", "\<\"mat2sbell\"\>", ",", "\<\"matinner\"\>", ",", "\<\"matinp\"\>", 
+   ",", "\<\"matinq\"\>", ",", "\<\"matnorm\"\>", ",", "\<\"ninecode\"\>", 
+   ",", "\<\"nten2mat\"\>", ",", "\<\"nten2oten\"\>", ",", "\<\"oten2mat\"\>",
+    ",", "\<\"oten2nten\"\>", ",", "\<\"oten2paul\"\>", ",", "\<\"outer\"\>", 
+   ",", "\<\"partrace\"\>", ",", "\<\"partrace2\"\>", ",", "\<\"partrans\"\>",
+    ",", "\<\"partrans2\"\>", ",", "\<\"paul2mat\"\>", 
+   ",", "\<\"paul2oten\"\>", ",", "\<\"paulnz\"\>", ",", "\<\"paulnzch\"\>", 
+   ",", "\<\"paulten\"\>", ",", "\<\"permket\"\>", ",", "\<\"permket2\"\>", 
+   ",", "\<\"permmat\"\>", ",", "\<\"permmat2\"\>", ",", "\<\"permno\"\>", 
+   ",", "\<\"permon\"\>", ",", "\<\"permptrace\"\>", ",", "\<\"permtrans\"\>",
+    ",", "\<\"permute\"\>", ",", "\<\"permutmat\"\>", ",", "\<\"plabc\"\>", 
+   ",", "\<\"pop2dop\"\>", ",", "\<\"prodlist\"\>", ",", "\<\"prtpaul\"\>", 
+   ",", "\<\"prtpaulch\"\>", ",", "\<\"quadn\"\>", ",", "\<\"quadr\"\>", 
+   ",", "\<\"ranbas\"\>", ",", "\<\"ranbasr\"\>", ",", "\<\"ranbell\"\>", 
+   ",", "\<\"ranket\"\>", ",", "\<\"ranketr\"\>", ",", "\<\"ranorn\"\>", 
+   ",", "\<\"ranornr\"\>", ",", "\<\"rgate\"\>", ",", "\<\"sbell2mat\"\>", 
+   ",", "\<\"schmidt\"\>", ",", "\<\"schmidt2ket\"\>", 
+   ",", "\<\"schmidtprobs\"\>", ",", "\<\"schmidtproj\"\>", 
+   ",", "\<\"sevencode\"\>", ",", "\<\"sigl\"\>", ",", "\<\"sigprod\"\>", 
+   ",", "\<\"sumlist\"\>", ",", "\<\"tenprod\"\>", ",", "\<\"threecode\"\>", 
+   ",", "\<\"traceout\"\>", ",", "\<\"traceout2\"\>", 
+   ",", "\<\"transpose\"\>", ",", "\<\"xgate\"\>", ",", "\<\"xket\"\>", 
+   ",", "\<\"xprj\"\>", ",", "\<\"ygate\"\>", ",", "\<\"yket\"\>", 
+   ",", "\<\"yprj\"\>", ",", "\<\"zgate\"\>", ",", "\<\"zket\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.819986888120329*^9, {3.8199882383600073`*^9, 3.819988260993147*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Show", " ", "usage", " ", "of", " ", "a", " ", "function"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.819987476192006*^9, 3.819987485712474*^9}, {
+  3.8199882872857533`*^9, 3.8199882886349363`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "cphase"}]], "Input",
+ CellChangeTimes->{{3.819987386672462*^9, 3.819987401108943*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"returns controlled-phase gate on two qubits\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.8199882610948257`*^9},
+ CellTags->"Info3819970261-2222405"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Show", " ", "definition", " ", "of", " ", "a", " ", "function"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Definition", "[", "cphase", "]"}]}]], "Input",
+ CellChangeTimes->{{3.819986894206859*^9, 3.819986898977841*^9}, {
+  3.819987377720639*^9, 3.819987380976941*^9}, {3.8199874878470182`*^9, 
+  3.819987495751234*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {GridBox[{
+       {
+        RowBox[{"cphase", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0", ",", 
+             RowBox[{"-", "1"}]}], "}"}]}], "}"}]}]}
+      },
+      BaselinePosition->{Baseline, {1, 1}},
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxItemSize->{"Columns" -> {{
+           Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+        "RowsIndexed" -> {}}]}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}}],
+  Definition[qinf050`cphase],
+  Editable->False]], "Output",
+ CellChangeTimes->{
+  3.81998738138094*^9, {3.8199882384865313`*^9, 3.819988261122519*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Show", " ", "usage", " ", "of", " ", "a", " ", "function"}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.819988292672106*^9, 3.819988292902422*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "entropy"}]], "Input",
+ CellChangeTimes->{{3.819987501651536*^9, 3.819987508879827*^9}, {
+  3.819988263420145*^9, 3.819988272337878*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"entropy[list] takes a list of probabilities {p_i} and \
+calculates the sum {-p_i log p_i}, where log is to base 2\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.8199882669230547`*^9},
+ CellTags->"Info3819970266-2222405"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Show", " ", "definition", " ", "of", " ", "a", " ", "function"}], 
+   "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"Definition", "[", "entropy", "]"}]}]], "Input",
+ CellChangeTimes->{{3.819988273881116*^9, 3.8199882990094423`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {GridBox[{
+       {
+        RowBox[{
+         RowBox[{"entropy", "[", "qinf050`Private`list_", "]"}], ":=", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"qinf050`Private`j", ",", 
+             RowBox[{"qinf050`Private`n", "=", 
+              RowBox[{"Length", "[", "qinf050`Private`list", "]"}]}], ",", 
+             "qinf050`Private`p", ",", "qinf050`Private`sum"}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"qinf050`Private`sum", "=", "0"}], ";", 
+            RowBox[{"For", "[", 
+             RowBox[{
+              RowBox[{"qinf050`Private`j", "=", "1"}], ",", 
+              RowBox[{
+              "qinf050`Private`j", "\[LessEqual]", "qinf050`Private`n"}], ",", 
+              RowBox[{"++", "qinf050`Private`j"}], ",", 
+              RowBox[{
+               RowBox[{"qinf050`Private`p", "=", 
+                RowBox[{
+                "qinf050`Private`list", "\[LeftDoubleBracket]", 
+                 "qinf050`Private`j", "\[RightDoubleBracket]"}]}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"qinf050`Private`p", "<", 
+                  FractionBox["1", 
+                   SuperscriptBox["10", "12"]]}], ",", 
+                 RowBox[{"Continue", "[", "]"}]}], "]"}], ";", 
+               RowBox[{"qinf050`Private`sum", "+=", 
+                RowBox[{"qinf050`Private`p", " ", 
+                 RowBox[{"Log", "[", 
+                  RowBox[{"2", ",", "qinf050`Private`p"}], "]"}]}]}], ";"}]}],
+              "]"}], ";", 
+            RowBox[{"-", "qinf050`Private`sum"}]}]}], "]"}]}]}
+      },
+      BaselinePosition->{Baseline, {1, 1}},
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxItemSize->{"Columns" -> {{
+           Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+        "RowsIndexed" -> {}}]}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}}],
+  Definition[qinf050`entropy],
+  Editable->False]], "Output",
+ CellChangeTimes->{3.8199882779907093`*^9}]
+}, Open  ]]
+},
+WindowSize->{1301, 716},
+WindowMargins->{{-10, Automatic}, {Automatic, -10}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3819970261-2222405"->{
+  Cell[6668, 147, 194, 4, 42, "Print",
+   CellTags->"Info3819970261-2222405"]},
+ "Info3819970266-2222405"->{
+  Cell[8925, 215, 264, 5, 42, "Print",
+   CellTags->"Info3819970266-2222405"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3819970261-2222405", 12115, 299},
+ {"Info3819970266-2222405", 12224, 302}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1576, 37, 209, "Input"],
+Cell[2137, 59, 594, 11, 55, "Input"],
+Cell[2734, 72, 232, 5, 32, "Input"],
+Cell[CellGroupData[{
+Cell[2991, 81, 165, 3, 32, "Input"],
+Cell[3159, 86, 3110, 45, 209, "Output"]
+}, Open  ]],
+Cell[6284, 134, 241, 5, 32, "Input"],
+Cell[CellGroupData[{
+Cell[6550, 143, 115, 2, 32, "Input"],
+Cell[6668, 147, 194, 4, 42, "Print",
+ CellTags->"Info3819970261-2222405"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6899, 156, 378, 8, 55, "Input"],
+Cell[7280, 166, 1211, 32, 32, "Output"]
+}, Open  ]],
+Cell[8506, 201, 226, 5, 55, "Input"],
+Cell[CellGroupData[{
+Cell[8757, 210, 165, 3, 32, "Input"],
+Cell[8925, 215, 264, 5, 42, "Print",
+ CellTags->"Info3819970266-2222405"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9226, 225, 304, 6, 77, "Input"],
+Cell[9533, 233, 2262, 53, 236, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
