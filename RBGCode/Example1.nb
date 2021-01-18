@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13688,        348]
-NotebookOptionsPosition[     12372,        299]
-NotebookOutlinePosition[     13010,        324]
-CellTagsIndexPosition[     12884,        318]
+NotebookDataLength[     13800,        353]
+NotebookOptionsPosition[     12512,        304]
+NotebookOutlinePosition[     13121,        329]
+CellTagsIndexPosition[     12995,        323]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,36 +26,40 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"Example1", ".", "nb"}], "\n", "Aim"}], ":", 
      RowBox[{
-     "To", " ", "correctly", " ", "load", " ", "the", " ", "mathematica", " ",
-       "package", " ", "when", " ", "launching", " ", "mathematica", " ", 
-      "from", " ", "command", " ", 
-      RowBox[{"line", "."}]}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{"Author", ":", 
+     "To", " ", "load", " ", "the", " ", "mathematica", " ", "package"}]}], 
+    ",", 
+    RowBox[{"qinf050", ".", "m"}], ",", " ", 
+    RowBox[{
      RowBox[{
-      RowBox[{"Vikesh", " ", "Siddhu"}], "<", 
+     "when", " ", "launching", " ", "Mathematica", " ", "from", " ", 
+      "command", " ", 
+      RowBox[{"line", "."}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Author", ":", 
       RowBox[{
-       RowBox[{"vsiddhu", "@", "andrew"}], ".", "cmu", ".", "edu"}], ">"}]}], 
-    ";", "\[IndentingNewLine]", 
-    RowBox[{"Date", ":", 
-     RowBox[{"18", " ", "Jan", " ", "2020"}]}], ";", "\[IndentingNewLine]", 
-    "\[IndentingNewLine]", 
-    RowBox[{
-    "1.", " ", "In", " ", "a", " ", "directory", " ", "of", " ", "your", " ", 
-     "choice", " ", "place", " ", 
-     RowBox[{"qinf050", ".", "ma"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-    "2.", " ", "Go", " ", "to", " ", "that", " ", "same", " ", "directory", 
-     " ", "via", " ", "command", " ", "line", " ", "and", " ", "launch", " ", 
-     "mathematica", " ", "from", " ", "command", " ", 
-     RowBox[{"line", "."}]}], ";", " ", 
-    RowBox[{
-    "On", " ", "Ubuntu", " ", "machines", " ", "mathematica", " ", "can", " ",
-      "be", " ", "launched", " ", "from", " ", "command", " ", "line", " ", 
-     "by", " ", 
-     RowBox[{"typing", " ", "'"}], 
-     RowBox[{"mathematica", "'"}], " ", "and", " ", 
-     RowBox[{"pressing", " ", "'"}], 
-     RowBox[{"Enter", "'"}]}], ";"}], "\[IndentingNewLine]", "*)"}], 
+       RowBox[{"Vikesh", " ", "Siddhu"}], "<", 
+       RowBox[{
+        RowBox[{"vsiddhu", "@", "andrew"}], ".", "cmu", ".", "edu"}], ">"}]}],
+      ";", "\[IndentingNewLine]", 
+     RowBox[{"Date", ":", 
+      RowBox[{"18", " ", "Jan", " ", "2020"}]}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+     "1.", " ", "In", " ", "a", " ", "directory", " ", "of", " ", "your", " ",
+       "choice", " ", "place", " ", 
+      RowBox[{"qinf050", ".", "ma"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+     "2.", " ", "Go", " ", "to", " ", "that", " ", "same", " ", "directory", 
+      " ", "via", " ", "command", " ", "line", " ", "and", " ", "launch", " ",
+       "mathematica", " ", "from", " ", "command", " ", 
+      RowBox[{"line", "."}]}], ";", " ", 
+     RowBox[{
+     "On", " ", "Ubuntu", " ", "machines", " ", "mathematica", " ", "can", 
+      " ", "be", " ", "launched", " ", "from", " ", "command", " ", "line", 
+      " ", "by", " ", 
+      RowBox[{"typing", " ", "'"}], 
+      RowBox[{"mathematica", "'"}], " ", "and", " ", 
+      RowBox[{"pressing", " ", "'"}], 
+      RowBox[{"Enter", "'"}]}], ";"}]}], "\[IndentingNewLine]", "*)"}], 
   "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
@@ -65,7 +69,8 @@ Cell[BoxData[
   RowBox[{"<<", "qinf050`"}]}]], "Input",
  CellChangeTimes->{{3.819986559314927*^9, 3.8199865926753683`*^9}, {
   3.819986919763892*^9, 3.819987143414454*^9}, {3.8199887734415293`*^9, 
-  3.819988774747184*^9}, {3.8199926986322117`*^9, 3.819992799567047*^9}}],
+  3.819988774747184*^9}, {3.8199926986322117`*^9, 3.819992799567047*^9}, {
+  3.8199929260660477`*^9, 3.819992961681713*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -298,7 +303,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{1301, 716},
-WindowMargins->{{Automatic, 0}, {0, Automatic}},
+WindowMargins->-10,
 FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -308,47 +313,47 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info3819970261-2222405"->{
-  Cell[7229, 157, 194, 4, 42, "Print",
+  Cell[7369, 162, 194, 4, 42, "Print",
    CellTags->"Info3819970261-2222405"]},
  "Info3819970266-2222405"->{
-  Cell[9486, 225, 264, 5, 42, "Print",
+  Cell[9626, 230, 264, 5, 42, "Print",
    CellTags->"Info3819970266-2222405"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3819970261-2222405", 12672, 309},
- {"Info3819970266-2222405", 12781, 312}
+ {"Info3819970261-2222405", 12783, 314},
+ {"Info3819970266-2222405", 12892, 317}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 2137, 47, 275, "Input"],
-Cell[2698, 69, 594, 11, 55, "Input"],
-Cell[3295, 82, 232, 5, 32, "Input"],
+Cell[558, 20, 2277, 52, 275, "Input"],
+Cell[2838, 74, 594, 11, 55, "Input"],
+Cell[3435, 87, 232, 5, 32, "Input"],
 Cell[CellGroupData[{
-Cell[3552, 91, 165, 3, 32, "Input"],
-Cell[3720, 96, 3110, 45, 209, "Output"]
+Cell[3692, 96, 165, 3, 32, "Input"],
+Cell[3860, 101, 3110, 45, 209, "Output"]
 }, Open  ]],
-Cell[6845, 144, 241, 5, 32, "Input"],
+Cell[6985, 149, 241, 5, 32, "Input"],
 Cell[CellGroupData[{
-Cell[7111, 153, 115, 2, 32, "Input"],
-Cell[7229, 157, 194, 4, 42, "Print",
+Cell[7251, 158, 115, 2, 32, "Input"],
+Cell[7369, 162, 194, 4, 42, "Print",
  CellTags->"Info3819970261-2222405"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7460, 166, 378, 8, 55, "Input"],
-Cell[7841, 176, 1211, 32, 32, "Output"]
+Cell[7600, 171, 378, 8, 55, "Input"],
+Cell[7981, 181, 1211, 32, 32, "Output"]
 }, Open  ]],
-Cell[9067, 211, 226, 5, 55, "Input"],
+Cell[9207, 216, 226, 5, 55, "Input"],
 Cell[CellGroupData[{
-Cell[9318, 220, 165, 3, 32, "Input"],
-Cell[9486, 225, 264, 5, 42, "Print",
+Cell[9458, 225, 165, 3, 32, "Input"],
+Cell[9626, 230, 264, 5, 42, "Print",
  CellTags->"Info3819970266-2222405"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9787, 235, 304, 6, 77, "Input"],
-Cell[10094, 243, 2262, 53, 236, "Output"]
+Cell[9927, 240, 304, 6, 77, "Input"],
+Cell[10234, 248, 2262, 53, 236, "Output"]
 }, Open  ]]
 }
 ]

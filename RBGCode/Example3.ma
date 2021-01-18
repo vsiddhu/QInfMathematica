@@ -1,6 +1,6 @@
 (*
 Name    : Example3.ma;
-Aim     : To correctly load the mathematica package when using mathematica in
+Aim     : To load the mathematica package, qinf050.m, when using mathematica in
           script mode.;
 Author  : Vikesh Siddhu <vsiddhu@andrew.cmu.edu>;
 Date    : 18 Jan 2020;
@@ -17,16 +17,17 @@ Date    : 18 Jan 2020;
         MathKernel -script Example3.ma >> Example3Output &
 
     where 'MathKernel' calls Mathematica, '-scrpit' is for running Mathematica
-    in script mode (as opposed to the default interactive mode), 'Example3.ma'
-    is the file being run, '>>' appends the Mathematica output to a file named
-    'Example3Output', and '&' ensured this whole command runs in the background.
-
+    in script mode (as opposed to some other default mode), 'Example3.ma' is
+    the file being run, '>>' appends the Mathematica output to a file named
+    'Example3Output', and '&' ensured this whole command runs in the
+    background.
 *)
 
 (*Read in the Wolfram Language package with filename qinf050.m*)
 << qinf050`
 
-(*Get a list of the contexts corresponding to all packages which have been loaded in your current Wolfram System session*)
+(*Get a list of the contexts corresponding to all packages which have been
+loaded in your current Wolfram System session*)
 
 Print["Packages"]
 Print[$Packages]

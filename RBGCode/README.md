@@ -37,3 +37,17 @@ The full output of
 ``` 
 
 is included in the [diffOutput](diffOutput) file.
+
+# Examples
+
+Three examples are included in this directory
+
+* [Example1.nb](Example1.nb) - To load the mathematica package, `qinf050.m`,
+  when launching Mathematica from command line.
+
+* [Example2.nb](Example2.nb) - To load the mathematica package, `qinf050.m`,
+  when using a mathematica notebook.
+
+* [Example3.nb](Example3.ma) - To load the mathematica package, `qinf050.m`,
+  when using mathematica in script mode.
+
