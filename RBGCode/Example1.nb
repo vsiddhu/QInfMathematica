@@ -10,43 +10,53 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13130,        338]
-NotebookOptionsPosition[     11811,        289]
-NotebookOutlinePosition[     12453,        314]
-CellTagsIndexPosition[     12327,        308]
+NotebookDataLength[     13688,        348]
+NotebookOptionsPosition[     12372,        299]
+NotebookOutlinePosition[     13010,        324]
+CellTagsIndexPosition[     12884,        318]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[
  RowBox[{
-  RowBox[{"(*", 
+  RowBox[{"(*", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{
+    RowBox[{"Name", ":", 
      RowBox[{
-      RowBox[{"Example", " ", "1"}], ":", " ", 
+      RowBox[{"Example1", ".", "nb"}], "\n", "Aim"}], ":", 
+     RowBox[{
+     "To", " ", "correctly", " ", "load", " ", "the", " ", "mathematica", " ",
+       "package", " ", "when", " ", "launching", " ", "mathematica", " ", 
+      "from", " ", "command", " ", 
+      RowBox[{"line", "."}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Author", ":", 
+     RowBox[{
+      RowBox[{"Vikesh", " ", "Siddhu"}], "<", 
       RowBox[{
-      "How", " ", "to", " ", "load", " ", "package", " ", "correctly"}]}], 
-     ";", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"Method", " ", "1"}], "-", " ", 
-      RowBox[{"Notebook", " ", "from", " ", "command", " ", "line"}]}], " ", 
-     ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{
-     "1.", " ", "In", " ", "a", " ", "directory", " ", "of", " ", "your", " ",
-       "choice"}]}], ",", " ", 
+       RowBox[{"vsiddhu", "@", "andrew"}], ".", "cmu", ".", "edu"}], ">"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"Date", ":", 
+     RowBox[{"18", " ", "Jan", " ", "2020"}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"open", " ", "mathematica", " ", "via", " ", "command", " ", 
-      RowBox[{"line", "."}]}], ";", " ", 
-     RowBox[{
-     "On", " ", "Ubuntu", " ", "machines", " ", "mathematica", " ", "can", 
-      " ", "be", " ", "opened", " ", "from", " ", "command", " ", "line", " ",
-       "by", " ", 
-      RowBox[{"typing", " ", "'"}], 
-      RowBox[{"mathematica", "'"}], " ", "and", " ", 
-      RowBox[{"pressing", " ", "'"}], 
-      RowBox[{"Enter", "'"}]}], ";"}]}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+    "1.", " ", "In", " ", "a", " ", "directory", " ", "of", " ", "your", " ", 
+     "choice", " ", "place", " ", 
+     RowBox[{"qinf050", ".", "ma"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+    "2.", " ", "Go", " ", "to", " ", "that", " ", "same", " ", "directory", 
+     " ", "via", " ", "command", " ", "line", " ", "and", " ", "launch", " ", 
+     "mathematica", " ", "from", " ", "command", " ", 
+     RowBox[{"line", "."}]}], ";", " ", 
+    RowBox[{
+    "On", " ", "Ubuntu", " ", "machines", " ", "mathematica", " ", "can", " ",
+      "be", " ", "launched", " ", "from", " ", "command", " ", "line", " ", 
+     "by", " ", 
+     RowBox[{"typing", " ", "'"}], 
+     RowBox[{"mathematica", "'"}], " ", "and", " ", 
+     RowBox[{"pressing", " ", "'"}], 
+     RowBox[{"Enter", "'"}]}], ";"}], "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
    "Read", " ", "in", " ", "the", " ", "Wolfram", " ", "Language", " ", 
@@ -55,7 +65,7 @@ Cell[BoxData[
   RowBox[{"<<", "qinf050`"}]}]], "Input",
  CellChangeTimes->{{3.819986559314927*^9, 3.8199865926753683`*^9}, {
   3.819986919763892*^9, 3.819987143414454*^9}, {3.8199887734415293`*^9, 
-  3.819988774747184*^9}}],
+  3.819988774747184*^9}, {3.8199926986322117`*^9, 3.819992799567047*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -288,7 +298,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{1301, 716},
-WindowMargins->{{-10, Automatic}, {Automatic, -10}},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
 FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -298,47 +308,47 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info3819970261-2222405"->{
-  Cell[6668, 147, 194, 4, 42, "Print",
+  Cell[7229, 157, 194, 4, 42, "Print",
    CellTags->"Info3819970261-2222405"]},
  "Info3819970266-2222405"->{
-  Cell[8925, 215, 264, 5, 42, "Print",
+  Cell[9486, 225, 264, 5, 42, "Print",
    CellTags->"Info3819970266-2222405"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3819970261-2222405", 12115, 299},
- {"Info3819970266-2222405", 12224, 302}
+ {"Info3819970261-2222405", 12672, 309},
+ {"Info3819970266-2222405", 12781, 312}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1576, 37, 209, "Input"],
-Cell[2137, 59, 594, 11, 55, "Input"],
-Cell[2734, 72, 232, 5, 32, "Input"],
+Cell[558, 20, 2137, 47, 275, "Input"],
+Cell[2698, 69, 594, 11, 55, "Input"],
+Cell[3295, 82, 232, 5, 32, "Input"],
 Cell[CellGroupData[{
-Cell[2991, 81, 165, 3, 32, "Input"],
-Cell[3159, 86, 3110, 45, 209, "Output"]
+Cell[3552, 91, 165, 3, 32, "Input"],
+Cell[3720, 96, 3110, 45, 209, "Output"]
 }, Open  ]],
-Cell[6284, 134, 241, 5, 32, "Input"],
+Cell[6845, 144, 241, 5, 32, "Input"],
 Cell[CellGroupData[{
-Cell[6550, 143, 115, 2, 32, "Input"],
-Cell[6668, 147, 194, 4, 42, "Print",
+Cell[7111, 153, 115, 2, 32, "Input"],
+Cell[7229, 157, 194, 4, 42, "Print",
  CellTags->"Info3819970261-2222405"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6899, 156, 378, 8, 55, "Input"],
-Cell[7280, 166, 1211, 32, 32, "Output"]
+Cell[7460, 166, 378, 8, 55, "Input"],
+Cell[7841, 176, 1211, 32, 32, "Output"]
 }, Open  ]],
-Cell[8506, 201, 226, 5, 55, "Input"],
+Cell[9067, 211, 226, 5, 55, "Input"],
 Cell[CellGroupData[{
-Cell[8757, 210, 165, 3, 32, "Input"],
-Cell[8925, 215, 264, 5, 42, "Print",
+Cell[9318, 220, 165, 3, 32, "Input"],
+Cell[9486, 225, 264, 5, 42, "Print",
  CellTags->"Info3819970266-2222405"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9226, 225, 304, 6, 77, "Input"],
-Cell[9533, 233, 2262, 53, 236, "Output"]
+Cell[9787, 235, 304, 6, 77, "Input"],
+Cell[10094, 243, 2262, 53, 236, "Output"]
 }, Open  ]]
 }
 ]

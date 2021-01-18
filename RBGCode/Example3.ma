@@ -1,9 +1,9 @@
 (*
-Name    : Example3.ma
+Name    : Example3.ma;
 Aim     : To correctly load the mathematica package when using mathematica in
-          script mode.
-Author  : Vikesh Siddhu <vsiddhu@andrew.cmu.edu>
-Date    : 18 Jan 2020
+          script mode.;
+Author  : Vikesh Siddhu <vsiddhu@andrew.cmu.edu>;
+Date    : 18 Jan 2020;
 
 1.  In your current directory place qinf050.m. If the qinf050.m file is placed
     in some other directory with full path "/home/uname/MathPackage" then right
