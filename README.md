@@ -1,10 +1,10 @@
 # QInfMathematica
 
-A repository containing a collection of Mathematica functions and other objects, 
-intended to be useful in studies of quantum information. Some of
-these functions/objects modify or call others in [Quantum Information Programs in
-Mathematica](https://quantum.phys.cmu.edu/QPM/). These functions/objects functions
-are also available in this repository.
+A repository containing a collection of Mathematica functions and other
+objects, intended to be useful in studies of quantum information. Some of these
+functions/objects modify or call others in [Quantum Information Programs in
+Mathematica](https://quantum.phys.cmu.edu/QPM/). These functions/objects
+functions are also [available] in this repository.
 
 
 ## Author
