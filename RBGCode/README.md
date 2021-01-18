@@ -7,8 +7,8 @@ package is obtained by modifying a mathematica file, `qinf050.ma`, obtained from
 the **Quantum Information Programs in Mathematica**
 [website](https://quantum.phys.cmu.edu/QPM/) as part of a
 [zipped](https://quantum.phys.cmu.edu/QPM/qinf050.zip) file. This zipped file
-also has additional documentation about these functions and a [license
-file](license.txt).
+also has additional documentation about these functions and a 
+[license file](license.txt).
 
 The **Quantum Information Programs in Mathematica**
 [website](https://quantum.phys.cmu.edu/QPM/) indicates that the collection of
@@ -50,4 +50,21 @@ Three examples are included in this directory
 
 * [Example3.nb](Example3.ma) - To load the mathematica package, `qinf050.m`,
   when using mathematica in script mode.
+
+## License
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version .  
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
+Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+For additional details, see the [LICENSE](license.txt) file.
 
