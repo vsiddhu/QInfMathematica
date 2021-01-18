@@ -400,16 +400,16 @@ bin2ket::usage = "bin2ket[ls] takes list ls of n 0's and 1's,thought of as basis
 
 bket::usage = "bket[bin,n]. Returns stadard form of basis ketcorresponding to |bin>, where 'bin' is a string of n 0's or 1's. E.g.,bket[01,2]={0,1,0,0}; bket[010,3]={0,0,1,0,0,0,0,0}. Also see bin2ket";	
 
-
 blochket::usage = "blochket[{x,y,z}] takes the Cartesiancoordinates of a point on the Bloch sphere and returns the corresponding ket inthe form {cos(th/2),sin(th/2)e^i*phi}."	;
 
-
 cgate::usage = "cgate[W_] returns a controlled-W on A x B,where A is the control qubit and W a unitary on B (any dimension), as a matrix"
+
 cnot::usage = "returns controlled-not gate on 2 qubits, withfirst qubit the control";
 
 coeffs::usage = "coeffs[v,b] gives the list of expansioncoefficients of the ket v in the orthonormal basis b (= list of basisvectors).";
 
 copygate::usage = "copygate[gate,nn] returns the tensor productgate ox gate ox ... ox gate, containing 'gate' nn times, as a matrix";
+
 cphase::usage = "returns controlled-phase gate on two qubits";
 
 diags::usage = "diags[M] takes a matrix M as a list of lists,and extracts the diagonal elements as a single list.";
@@ -426,6 +426,7 @@ entang::usage = "entang[ket,dl] takes a ket on a tensor productAxB, with dl = {d
 
 entsq::usage = "entsq[ket,dl] takes a ket on a tensor productAxB, with dl = {dim A, dim B}, normalizes it, forms the partial trace rhoa ofthe projector, and returns -log_2 of the trace of its square, for a Renyientanglement."
 
+entropy::usage = "entropy[list] takes a list of probabilities {p_i} and calculates the sum {-p_i log p_i}, where log is to base 2"
 
 exchg::usage = " 4 x 4 unitary that exchanges two qubits"
 
@@ -506,6 +507,7 @@ oten2mat::usage = "oten2mat[otn] converts o-tensor otnto a (possibly rectangular
 oten2nten::usage = "oten2nten[otn] converts o-tensor referenced (i,i',j,j'...) to an n-tensor referenced (i,j,...,i',j',...)."
 
 oten2paul::usage = "oten2paul[oten] returns the Paulicoefficient tensor for an operator in the form of an o tensor, for n qubits"		
+
 outer::usage = "outer[ls1, ls2, ...] gives the outer product"
 
 partrace::usage = "M'=partrace[M,q,dl] traces M over space q(=1 or 2 or ...)  in the list dl of factors in a tensor product.  Both M and M'are square matrices."
@@ -583,12 +585,9 @@ ranornr::usage = "ranornr[m,n] randomly generates m orthonormal real kets on a s
 
 rgate::usage = "Single qubit rgate[j,th] for j=1,2,3=(x,y,z) rotates by angle th about axis j as per Nielsen and Chuang p. 174"
 
-
 sbell2mat::usage = "sbell2mat[mat_] converts a 4 x 4 matrix in the special Bell basis to one in the standard basis"
 
 schmidt::usage = "schmidt[ket,dl] takes a ket, assumednormalized, on a tensor product AxB, with dl = {dim A, dim B}, expands it inthe Schmidt form as a sum of type c_j |a_j> |b_j>, with c_j > 0, and returns alist {c_j, |a_j>, |b_j>}, where |a_j> and |b_j> are themselves lists. For |c_j|<: 10^-8, nothing is returned."
-
-
 
 schmidtprobs::usage = "schmidtprobs[ket,dl] returns Schmidt probabilities for normalized 'ket' on tensor product A x B with dl={da,db}."
 
@@ -599,15 +598,13 @@ schmidt2ket::usage = "Applied to a list {c_j, |a_j>, |b_j>},where |a_j> and |b_j
 
 sevencode::usage = "{ |0_L>, |1_L> } for Steane 7 qubit code"
 
-
 sigl::usage = "sigl[ls] returns a tensor product of Paulimatrices corresponding to the list ls.  E.g., ls={0,2} produces sig[0] otimessig[2] as a matrix."
-
 
 sigprod::usage = "sigprod[j,k,...] = sig[j] ox sig[j] ox...as a matrix; j, k, ... integers in [0,3].  Any number of arguments."	
 
 sumlist::usage = "sumlist[ls] returns the sum of the elements in list ls."
 
-tenprod::usage = "tenprod[mt1,mt2,...] returns the matrix ofthe tensor product mt1 0x mt2 0x ... The matrices may be rectangular."(*tenprod:comment. outer[] transforms the na matrices read into an o-tensor, which is transformed to an n-tensor by transpose[] usingthe permutation pm. The product of numbers of columns of matrices read in = dim =  number of columns of output matrix.*)
+tenprod::usage = "tenprod[mt1,mt2,...] returns the matrix ofthe tensor product mt1 0x mt2 0x ... The matrices may be rectangular."
 
 threecode::usage = "list { |000>, |111>}"
 
@@ -1116,7 +1113,6 @@ proj ]
 	schmidt2ket[ls_]:= Sum[ ls[[i,1]]*ketprod[ ls[[i,2]],ls[[i,3]] ],
 {i,Length[ls]} ];
 
-		sevencode::usage = "{ |0_L>, |1_L> } for Steane 7 qubit code"
 	sevencode = {
  +bket[0000000,7] +bket[1010101,7] +bket[0110011,7] +bket[1100110,7]
  +bket[0001111,7] +bket[1011010,7] +bket[0111100,7] +bket[1101001,7],
@@ -1144,7 +1140,6 @@ na=Length[las]; pm = permon[na];
 dim=prodlist[ Map[Last[Dimensions[#]]&,las] ];
 Partition[  Flatten[ transpose[outer[args],pm] ] ,  dim  ]](*END tenprod*)
 
-		threecode::usage = "list { |000>, |111>}"
 	threecode = {bket[000,3], bket[111,3]}
 
 	traceout[mt_,ls_,dl_] := If[ Length[ls]==0 , mt , 
