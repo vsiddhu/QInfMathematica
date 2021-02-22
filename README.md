@@ -9,7 +9,7 @@ functions/objects functions are also [available] in this repository.
 
 ## Author
 
-Copyright (C) 2021 Vikesh Siddhu <vikesh.siddhu@colorado.edu>
+Copyright (C) 2021 Vikesh Siddhu <vsiddhu@andrew.cmu.edu>
 
 ## License
 
