@@ -2,7 +2,7 @@
 (*
 
 	Quantum Channel Programs in Mathematica.  
-    Date: 11 Oct'20
+    Date: 18 Jan'20
 	
     File header contains abbreviations and alphabetical list of all objects.
 	Main file contains definitions of objects
