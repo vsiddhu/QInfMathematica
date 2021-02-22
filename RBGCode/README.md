@@ -34,7 +34,8 @@ turned into a package, `qinf050.m`, by
 
 The full output of 
 
-```diff qinf050.m qinf050.ma
+```
+diff qinf050.m qinf050.ma
 ``` 
 
 is included in the [diffOutput](diffOutput) file.
