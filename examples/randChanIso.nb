@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     16157,        455]
-NotebookOptionsPosition[     14379,        391]
-NotebookOutlinePosition[     14951,        414]
-CellTagsIndexPosition[     14866,        409]
+NotebookDataLength[     17554,        486]
+NotebookOptionsPosition[     15660,        418]
+NotebookOutlinePosition[     16232,        441]
+CellTagsIndexPosition[     16147,        436]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,54 +21,70 @@ Notebook[{
 Cell[BoxData[
  RowBox[{"(*", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{
-    RowBox[{"Aim", ":", " ", 
-     RowBox[{
-     "Generate", " ", "a", " ", "random", " ", "channel", " ", "and", " ", 
-      "apply", " ", "to", " ", "any", " ", "fixed", " ", "operator"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Date", " ", ":", " ", 
-     RowBox[{"9", " ", 
-      RowBox[{"Mar", "'"}], "21"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{"Author", ":", " ", 
-     RowBox[{"Vikesh", " ", "Siddhu"}]}], ";", "\[IndentingNewLine]", 
-    "\[IndentingNewLine]", 
+   RowBox[{"Aim", ":", " ", 
     RowBox[{
-    "1.", " ", "In", " ", "a", " ", "directory", " ", "of", " ", "your", " ", 
-     "choice"}]}], ",", " ", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"'", "/", "home"}], "/", "uname"}], "/", 
-    RowBox[{"MathPackage", "'"}]}], ",", " ", 
-   RowBox[{
-    RowBox[{"place", " ", "the", " ", 
-     RowBox[{"qinf050", ".", "m"}], " ", "and", " ", 
-     RowBox[{"qChan", ".", "m"}], " ", "files"}], ";", "\[IndentingNewLine]", 
-    
-    RowBox[{
-    "2.", " ", "Open", " ", "a", " ", "Mathematica", " ", "Notebook"}]}]}], 
-  "\[IndentingNewLine]", "*)"}]], "Input",
+    "Generate", " ", "a", " ", "random", " ", "channel", " ", "and", " ", 
+     "apply", " ", "to", " ", "any", " ", "fixed", " ", "operator"}]}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Date", " ", ":", " ", 
+    RowBox[{"9", " ", 
+     RowBox[{"Mar", "'"}], "21"}]}], ";", "\[IndentingNewLine]", 
+   RowBox[{"Author", ":", " ", 
+    RowBox[{"Vikesh", " ", "Siddhu"}]}], ";"}], "\[IndentingNewLine]", 
+  "*)"}]], "Input",
  CellChangeTimes->{{3.824286386091076*^9, 3.824286422284177*^9}, {
    3.8242980924415417`*^9, 3.824298094098199*^9}, 3.824298280175926*^9, {
    3.8243004724467916`*^9, 3.824300477660123*^9}, {3.824303507210421*^9, 
    3.824303546404833*^9}, {3.8243054552015877`*^9, 3.824305476997957*^9}, {
-   3.824306718188014*^9, 3.824306740177464*^9}}],
+   3.824306718188014*^9, 3.824306740177464*^9}, {3.82431059640762*^9, 
+   3.8243105977511787`*^9}, {3.824310700700733*^9, 3.8243107019289427`*^9}}],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
    RowBox[{
-    RowBox[{"AppendTo", "[", 
-     RowBox[{"$Path", ",", "\"\</home/uname/MathPackage\>\""}], "]"}], ";"}], 
-   "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"If", " ", "the", "  ", 
+     RowBox[{"qinf050", ".", "m"}], " ", "and", " ", 
+     RowBox[{"qChan", ".", "m"}], " ", "files", " ", "are", " ", "in", " ", 
+     "the", " ", "same", " ", "directory", " ", "as", " ", "this", " ", 
+     "notebook"}], ",", " ", 
+    RowBox[{
+    "use", " ", "this", " ", "command", " ", "to", " ", "load", " ", "the", 
+     " ", "package"}]}], "*)"}], "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{
-    RowBox[{"AppendTo", "[", 
-     RowBox[{
-     "$Path", ",", "\"\</home/vsiddhu/git/mathematica.git/packUse\>\""}], 
-     "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"$Path", ",", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], ";"}]}]], "Input",
  CellChangeTimes->{{3.8243067464750338`*^9, 3.824306746956126*^9}, {
-  3.8243093612683363`*^9, 3.8243093662278433`*^9}}],
+  3.8243093612683363`*^9, 3.8243093662278433`*^9}, {3.824310556416696*^9, 
+  3.8243105575786333`*^9}, {3.824310599499943*^9, 3.8243106395872507`*^9}, {
+  3.824310670056779*^9, 3.824310707262602*^9}, {3.8243107998488083`*^9, 
+  3.8243108058205757`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"If", " ", "the", "  ", 
+     RowBox[{"qinf050", ".", "m"}], " ", "and", " ", 
+     RowBox[{"qChan", ".", "m"}], " ", "files", " ", "are", " ", "in", " ", 
+     "some", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"directory", "  ", "'"}], "/", "home"}], "/", "uname"}], "/", 
+      
+      RowBox[{"MathPackage", "'"}]}]}], ",", " ", ",", " ", 
+    RowBox[{
+    "use", " ", "this", " ", "command", " ", "to", " ", "load", " ", "the", 
+     " ", "package"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"$Path", ",", "\"\</home/uname/MathPackage\>\""}], "]"}], ";"}], 
+  "\[IndentingNewLine]", "*)"}]], "Input",
+ CellChangeTimes->{{3.824310484688081*^9, 3.824310485399173*^9}, {
+  3.824310641129608*^9, 3.8243107101223593`*^9}, {3.8243108148526382`*^9, 
+  3.824310816197074*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -83,9 +99,19 @@ Cell[BoxData[
   RowBox[{"$Path", "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.8243067565172243`*^9, 3.824306757066063*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData["$Packages"], "Input",
  CellChangeTimes->{{3.823260362341875*^9, 3.823260363048314*^9}, 
    3.8242982890412273`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"GetFEKernelInit`\"\>", ",", "\<\"ResourceLocator`\"\>", 
+   ",", "\<\"PacletManager`\"\>", ",", "\<\"System`\"\>", 
+   ",", "\<\"Global`\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.824310715589942*^9}]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{"<<", "qChan`"}]], "Input",
@@ -123,7 +149,7 @@ Cell[BoxData[
    3.824305045139114*^9, 3.8243051790644827`*^9, 3.824305493784585*^9, 
    3.8243058642070093`*^9, 3.824305944033545*^9, 3.8243060867042837`*^9, 
    3.824306167068754*^9, 3.8243062090545692`*^9, 3.824306640307508*^9, 
-   3.824309369816813*^9}]
+   3.824309369816813*^9, 3.824310715632752*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -140,7 +166,7 @@ Cell[BoxData[
    ",", "\<\"krausToChanMat\"\>", ",", "\<\"krausToChanTen\"\>", 
    ",", "\<\"krausToChoi\"\>", ",", "\<\"opToChoi\"\>", 
    ",", "\<\"randChanIso\"\>", ",", "\<\"randIso\"\>"}], "}"}]], "Output",
- CellChangeTimes->{3.8243093698362627`*^9}]
+ CellChangeTimes->{3.8243093698362627`*^9, 3.824310715665708*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -166,8 +192,8 @@ randChanIso function. For example randChanIso[2,3,4] generates an isometry \
 with channel input dimension 2, output dimension 3, and environment dimension \
 4, i.e. an 12 x 2 complex matrix M with ConjugateTranspose[M].M = I_2\"\>", 
   "MSG"]], "Print", "PrintUsage",
- CellChangeTimes->{3.824309369934833*^9},
- CellTags->"Info3824291369-2785046"]
+ CellChangeTimes->{3.824310715810418*^9},
+ CellTags->"Info3824292715-8067999"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -183,8 +209,8 @@ representing the dimension of the channel output b, and an isometry taking \
 the input space a -> b x c. Returns a pair of operators {rhoB,rhoC}, where \
 rhoB is the channel output and rhoC is environment output\"\>", 
   "MSG"]], "Print", "PrintUsage",
- CellChangeTimes->{3.8243093700029*^9},
- CellTags->"Info3824291369-2785046"]
+ CellChangeTimes->{3.824310715899941*^9},
+ CellTags->"Info3824292715-8067999"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -242,7 +268,8 @@ Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"3", ",", "3"}], "}"}]], "Output",
  CellChangeTimes->{3.824306099470902*^9, 3.824306167330595*^9, 
-  3.8243062093348846`*^9, 3.824306640461619*^9, 3.824309370044002*^9}]
+  3.8243062093348846`*^9, 3.824306640461619*^9, 3.824309370044002*^9, 
+  3.824310715946657*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -282,7 +309,7 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"3", ",", "3"}], "}"}]], "Print",
- CellChangeTimes->{3.824309537701126*^9}]
+ CellChangeTimes->{3.824309537701126*^9, 3.824310715982561*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -347,7 +374,7 @@ Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"3", ",", "3"}], "}"}]], "Output",
  CellChangeTimes->{3.824306167382505*^9, 3.824306209391767*^9, 
-  3.824306640529891*^9, 3.824309370198626*^9}]
+  3.824306640529891*^9, 3.824309370198626*^9, 3.824310716024311*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -386,7 +413,7 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"4", ",", "4"}], "}"}]], "Print",
- CellChangeTimes->{3.824309529059595*^9}]
+ CellChangeTimes->{3.824309529059595*^9, 3.8243107160565434`*^9}]
 }, Open  ]]
 },
 WindowSize->{1301, 716},
@@ -399,63 +426,67 @@ StyleDefinitions->"Default.nb"
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "Info3824291369-2785046"->{
-  Cell[6227, 158, 737, 11, 96, "Print",
-   CellTags->"Info3824291369-2785046"],
-  Cell[7159, 179, 422, 7, 60, "Print",
-   CellTags->"Info3824291369-2785046"]}
+ "Info3824292715-8067999"->{
+  Cell[7413, 184, 737, 11, 96, "Print",
+   CellTags->"Info3824292715-8067999"],
+  Cell[8345, 205, 424, 7, 60, "Print",
+   CellTags->"Info3824292715-8067999"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3824291369-2785046", 14683, 401}
+ {"Info3824292715-8067999", 15964, 428}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1472, 34, 187, "Input"],
-Cell[2033, 56, 515, 14, 77, "Input"],
-Cell[2551, 72, 505, 11, 77, "Input"],
-Cell[3059, 85, 129, 2, 32, "Input"],
-Cell[3191, 89, 117, 2, 32, "Input"],
+Cell[558, 20, 972, 19, 121, "Input"],
+Cell[1533, 41, 933, 20, 55, "Input"],
+Cell[2469, 63, 936, 23, 121, "Input"],
+Cell[3408, 88, 505, 11, 77, "Input"],
 Cell[CellGroupData[{
-Cell[3333, 95, 131, 2, 32, "Input"],
-Cell[3467, 99, 1686, 26, 32, "Output"]
+Cell[3938, 103, 129, 2, 32, "Input"],
+Cell[4070, 107, 248, 5, 32, "Output"]
+}, Open  ]],
+Cell[4333, 115, 117, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[4475, 121, 131, 2, 32, "Input"],
+Cell[4609, 125, 1708, 26, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5190, 130, 139, 2, 32, "Input"],
-Cell[5332, 134, 452, 8, 55, "Output"]
+Cell[6354, 156, 139, 2, 32, "Input"],
+Cell[6496, 160, 474, 8, 55, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5821, 147, 403, 9, 77, "Input"],
-Cell[6227, 158, 737, 11, 96, "Print",
- CellTags->"Info3824291369-2785046"]
+Cell[7007, 173, 403, 9, 77, "Input"],
+Cell[7413, 184, 737, 11, 96, "Print",
+ CellTags->"Info3824292715-8067999"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7001, 174, 155, 3, 55, "Input"],
-Cell[7159, 179, 422, 7, 60, "Print",
- CellTags->"Info3824291369-2785046"]
+Cell[8187, 200, 155, 3, 55, "Input"],
+Cell[8345, 205, 424, 7, 60, "Print",
+ CellTags->"Info3824292715-8067999"]
 }, Open  ]],
-Cell[7596, 189, 854, 19, 99, "Input"],
+Cell[8784, 215, 854, 19, 99, "Input"],
 Cell[CellGroupData[{
-Cell[8475, 212, 970, 26, 77, "Input"],
-Cell[9448, 240, 208, 4, 32, "Output"]
+Cell[9663, 238, 970, 26, 77, "Input"],
+Cell[10636, 266, 233, 5, 32, "Output"]
 }, Open  ]],
-Cell[9671, 247, 702, 16, 55, "Input"],
+Cell[10884, 274, 702, 16, 55, "Input"],
 Cell[CellGroupData[{
-Cell[10398, 267, 482, 12, 77, "Input"],
-Cell[10883, 281, 114, 3, 23, "Print"]
+Cell[11611, 294, 482, 12, 77, "Input"],
+Cell[12096, 308, 136, 3, 23, "Print"]
 }, Open  ]],
-Cell[11012, 287, 148, 3, 32, "Input"],
-Cell[11163, 292, 858, 21, 99, "Input"],
+Cell[12247, 314, 148, 3, 32, "Input"],
+Cell[12398, 319, 858, 21, 99, "Input"],
 Cell[CellGroupData[{
-Cell[12046, 317, 923, 26, 77, "Input"],
-Cell[12972, 345, 184, 4, 32, "Output"]
+Cell[13281, 344, 923, 26, 77, "Input"],
+Cell[14207, 372, 206, 4, 32, "Output"]
 }, Open  ]],
-Cell[13171, 352, 604, 16, 55, "Input"],
+Cell[14428, 379, 604, 16, 55, "Input"],
 Cell[CellGroupData[{
-Cell[13800, 372, 446, 11, 99, "Input"],
-Cell[14249, 385, 114, 3, 23, "Print"]
+Cell[15057, 399, 446, 11, 99, "Input"],
+Cell[15506, 412, 138, 3, 23, "Print"]
 }, Open  ]]
 }
 ]
