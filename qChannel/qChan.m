@@ -56,7 +56,7 @@ opToChoi::usage = "Takes a channel matrix, and dimensions dIn, dOut of the chann
 
 randChanIso::usage = "Takes as input a channel input dimension da and returns an isometry with from channel input to channel output tensored with channel environment. By default channel output dimension dB is the same as channel input dA and channel environment dimension dC =  da*dB. These defaults dB and dC can be set by specifying the second and third arguments of this randChanIso function. For example randChanIso[2,3,4] generates an isometry with channel input dimension 2, output dimension 3, and environment dimension 4, i.e. an 12 x 2 complex matrix M with ConjugateTranspose[M].M = I_2";
 
-randIso::usage = "Takes as input two integer dI <= dO and returns a random dO x dI dimensional complex valued matrix M which represents an isometry from input space of dimension dI to output space of dimension dO i.e. ConjugateTranspose[M].M = IdentityMatrix[dI]";
+randIso::usage = "Takes as input two integer dI <= dO and returns a random dO x dI dimensional complex valued matrix M which represents an isometry from input space of dimension dI to output space of dimension dO i.e. ConjugateTranspose[M].M = IdentityMatrix[dI]. When dI = dO, randIso returns a Haar Random Unitary";
 
 Begin["`Private`"]
     (*Bult on top of qinf050.ma from http://quantum.phys.cmu.edu/QPM/*)
